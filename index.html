@@ -21,24 +21,37 @@
     }
 
     :root {
-      --baby-pink: #fec5d4;
-      --baby-pink-soft: #ffe8ee;
-      --baby-pink-light: #fff2f5;
-      --baby-pink-deep: #e8708c;
-      --baby-pink-vibrant: #ff5e83;
-      --rose-gold: #c9887b;
-      --rose-gold-light: #f7dcd5;
-      --rose-gold-dark: #985b51;
-      --pure-white: #ffffff;
-      --pearl-white: #fdfaf9;
-      --bg-gradient: radial-gradient(circle at 50% 20%, #ffffff 0%, #fff0f4 45%, #ffe1e8 100%);
-      --text-dark: #3a1e28;
-      --text-muted: #78525f;
-      --text-soft: #9f7584;
-      --metallic-rose: linear-gradient(135deg, #e8a295 0%, #fff0ed 35%, #bf7668 70%, #fad1c7 100%);
-      --metallic-pink: linear-gradient(135deg, #ffb3c6 0%, #ffffff 50%, #ff8aa5 100%);
-      --shadow-soft: 0 15px 40px rgba(220, 130, 155, 0.22);
-      --shadow-elevated: 0 25px 65px rgba(200, 100, 130, 0.28);
+      /* === GOLD & WHITE LUXURY PALETTE === */
+      --gold:           #c9a84c;
+      --gold-soft:      #f0d98a;
+      --gold-light:     #fdfbf0;
+      --gold-deep:      #9a7a0a;
+      --gold-vibrant:   #e0b020;
+      --gold-pale:      #fefdf5;
+      --gold-border:    #d4b860;
+
+      /* Alias old variable names → gold so existing references still work */
+      --baby-pink:          #f0d98a;
+      --baby-pink-soft:     #fefae8;
+      --baby-pink-light:    #fdfbf0;
+      --baby-pink-deep:     #c9a84c;
+      --baby-pink-vibrant:  #e0b020;
+      --rose-gold:          #c9a84c;
+      --rose-gold-light:    #fef3c7;
+      --rose-gold-dark:     #8b6914;
+
+      --pure-white:   #ffffff;
+      --pearl-white:  #fffef8;
+      --bg-gradient:  radial-gradient(circle at 50% 20%, #ffffff 0%, #fefcf0 45%, #fdf5d0 100%);
+
+      --text-dark:    #2a1a00;
+      --text-muted:   #7a6020;
+      --text-soft:    #a08030;
+
+      --metallic-gold:   linear-gradient(135deg, #f5e27a 0%, #ffffff 35%, #c9a84c 70%, #f0d98a 100%);
+      --metallic-white:  linear-gradient(135deg, #ffffff 0%, #fefdf5 50%, #f5e6a3 100%);
+      --shadow-soft:     0 15px 40px rgba(180, 140, 20, 0.18);
+      --shadow-elevated: 0 25px 65px rgba(160, 120, 10, 0.22);
     }
 
     body {
@@ -70,21 +83,21 @@
       justify-content: center;
       cursor: pointer;
       backdrop-filter: blur(10px);
-      box-shadow: 0 6px 20px rgba(232, 112, 140, 0.35);
+      box-shadow: 0 6px 20px rgba(201, 168, 76, 0.35);
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .music-btn:hover {
       transform: scale(1.1) rotate(15deg);
       border-color: var(--baby-pink-vibrant);
       color: var(--baby-pink-vibrant);
-      box-shadow: 0 8px 25px rgba(255, 94, 131, 0.45);
+      box-shadow: 0 8px 25px rgba(224, 176, 32, 0.45);
     }
     .music-btn.playing {
       animation: musicBeat 1.8s infinite ease-in-out;
     }
     @keyframes musicBeat {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(255, 112, 145, 0.4); }
-      50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(255, 94, 131, 0.7); }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(224, 176, 32, 0.4); }
+      50% { transform: scale(1.08); box-shadow: 0 0 25px rgba(224, 176, 32, 0.7); }
     }
 
     /* Ambient Canvas for Floating Petals, Sparkling Stardust & Floating Hearts */
@@ -110,7 +123,7 @@
       left: 10%;
       width: 380px;
       height: 380px;
-      background: rgba(255, 197, 212, 0.6);
+      background: rgba(240, 217, 138, 0.6);
       animation-duration: 12s;
     }
     .glow-2 {
@@ -118,7 +131,7 @@
       right: 5%;
       width: 420px;
       height: 420px;
-      background: rgba(255, 222, 232, 0.7);
+      background: rgba(254, 249, 200, 0.7);
       animation-duration: 16s;
     }
     .glow-3 {
@@ -142,7 +155,7 @@
       pointer-events: none;
       z-index: 99;
       opacity: 0.75;
-      filter: drop-shadow(0 2px 8px rgba(232, 112, 140, 0.3));
+      filter: drop-shadow(0 2px 8px rgba(201, 168, 76, 0.3));
       transition: opacity 0.5s ease;
     }
     .co-top-left { top: 12px; left: 12px; }
@@ -237,13 +250,13 @@
     .envelope-body {
       position: absolute;
       inset: 0;
-      background: linear-gradient(150deg, #ffffff 0%, #fff1f4 40%, #ffdce5 100%);
+      background: linear-gradient(150deg, #ffffff 0%, #fdfbf3 40%, #fef3c7 100%);
       border-radius: 14px;
-      border: 1.5px solid rgba(232, 112, 140, 0.45);
+      border: 1.5px solid rgba(201, 168, 76, 0.45);
       box-shadow: 
-        0 20px 50px rgba(210, 110, 140, 0.25),
+        0 20px 50px rgba(180, 140, 20, 0.25),
         0 4px 15px rgba(255, 255, 255, 0.9) inset,
-        0 0 35px rgba(255, 180, 200, 0.3);
+        0 0 35px rgba(240, 210, 120, 0.3);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -255,7 +268,7 @@
     .envelope-inner-border {
       position: absolute;
       inset: 10px;
-      border: 1px solid rgba(201, 136, 123, 0.4);
+      border: 1px solid rgba(201, 168, 76, 0.4);
       border-radius: 10px;
       pointer-events: none;
     }
@@ -263,7 +276,7 @@
       content: '';
       position: absolute;
       inset: 4px;
-      border: 0.8px dashed rgba(232, 112, 140, 0.3);
+      border: 0.8px dashed rgba(201, 168, 76, 0.3);
       border-radius: 8px;
     }
 
@@ -275,7 +288,7 @@
       width: 50%;
       border-style: solid;
       border-width: 160px 0 160px 240px;
-      border-color: transparent transparent transparent rgba(255, 215, 226, 0.7);
+      border-color: transparent transparent transparent rgba(255, 243, 185, 0.7);
       pointer-events: none;
     }
     .envelope-tri-right {
@@ -316,9 +329,9 @@
       width: 100%;
       height: 100%;
       clip-path: polygon(0 0, 100% 0, 50% 100%);
-      background: linear-gradient(180deg, #ffeef2 0%, #ffcbd7 80%, #ffaec0 100%);
+      background: linear-gradient(180deg, #fefdf0 0%, #fef3c7 80%, #e8c840 100%);
       border-top: 2px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 8px 25px rgba(220, 110, 140, 0.3);
+      box-shadow: 0 8px 25px rgba(180, 140, 20, 0.3);
       position: relative;
     }
     .envelope-flap-inner::after {
@@ -326,7 +339,7 @@
       position: absolute;
       inset: 4px;
       clip-path: polygon(0 0, 100% 0, 50% 100%);
-      border-top: 1px solid rgba(201, 136, 123, 0.4);
+      border-top: 1px solid rgba(201, 168, 76, 0.4);
     }
 
     .envelope-outer.opened .envelope-flap {
@@ -341,10 +354,10 @@
       left: 20px;
       right: 20px;
       height: 240px;
-      background: linear-gradient(145deg, #ffffff 0%, #fffafd 100%);
+      background: linear-gradient(145deg, #ffffff 0%, #fffdf5 100%);
       border-radius: 10px;
-      border: 1px solid rgba(232, 112, 140, 0.4);
-      box-shadow: 0 -6px 25px rgba(220, 110, 140, 0.2);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      box-shadow: 0 -6px 25px rgba(180, 140, 20, 0.2);
       z-index: 2;
       display: flex;
       flex-direction: column;
@@ -369,13 +382,13 @@
       padding: 12px 18px;
       width: 88%;
       margin: 0 auto 12px;
-      box-shadow: 0 6px 20px rgba(220, 120, 145, 0.2);
+      box-shadow: 0 6px 20px rgba(180, 140, 20, 0.2);
       backdrop-filter: blur(8px);
       transition: all 0.3s ease;
     }
     .envelope-guest-tag:hover {
       border-color: var(--baby-pink-deep);
-      box-shadow: 0 8px 25px rgba(232, 112, 140, 0.3);
+      box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
     }
     .tag-label {
       font-family: 'Cinzel', serif;
@@ -420,11 +433,11 @@
       width: 84px;
       height: 84px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #ff9ebb 0%, #f06a88 50%, #d83d63 100%);
+      background: radial-gradient(circle at 35% 35%, #f0d98a 0%, #c9a84c 50%, #b8860b 100%);
       border: 2.5px solid #ffffff;
       box-shadow: 
-        0 10px 25px rgba(216, 61, 99, 0.45),
-        0 0 25px rgba(255, 158, 187, 0.6),
+        0 10px 25px rgba(180, 130, 10, 0.45),
+        0 0 25px rgba(240, 217, 138, 0.6),
         inset 0 0 12px rgba(255, 255, 255, 0.4);
       cursor: pointer;
       z-index: 10;
@@ -438,15 +451,15 @@
     .wax-seal-btn:hover {
       transform: translate(-50%, -50%) scale(1.12) rotate(5deg);
       box-shadow: 
-        0 12px 35px rgba(216, 61, 99, 0.65),
-        0 0 35px rgba(255, 112, 145, 0.9);
+        0 12px 35px rgba(180, 130, 10, 0.65),
+        0 0 35px rgba(224, 176, 32, 0.9);
     }
     @keyframes sealBabyPinkGlow {
       0%, 100% {
-        box-shadow: 0 10px 25px rgba(216, 61, 99, 0.45), 0 0 15px rgba(255, 158, 187, 0.5);
+        box-shadow: 0 10px 25px rgba(180, 130, 10, 0.45), 0 0 15px rgba(240, 217, 138, 0.5);
       }
       50% {
-        box-shadow: 0 12px 30px rgba(216, 61, 99, 0.65), 0 0 30px rgba(255, 94, 131, 0.9);
+        box-shadow: 0 12px 30px rgba(180, 130, 10, 0.65), 0 0 30px rgba(224, 176, 32, 0.9);
       }
     }
     .wax-seal-monogram {
@@ -454,7 +467,7 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: #ffffff;
-      text-shadow: 0 2px 4px rgba(180, 40, 70, 0.6), 0 0 8px rgba(255, 255, 255, 0.8);
+      text-shadow: 0 2px 4px rgba(140, 100, 5, 0.6), 0 0 8px rgba(255, 255, 255, 0.8);
       line-height: 1;
     }
     .wax-seal-sub {
@@ -498,7 +511,7 @@
       padding: 6px 14px;
       border-radius: 20px;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(220, 120, 145, 0.15);
+      box-shadow: 0 2px 8px rgba(180, 140, 20, 0.15);
       transition: all 0.25s ease;
     }
     .preset-chip:hover {
@@ -506,7 +519,7 @@
       border-color: var(--baby-pink-deep);
       color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(232, 112, 140, 0.35);
+      box-shadow: 0 5px 15px rgba(201, 168, 76, 0.35);
     }
 
 
@@ -534,7 +547,7 @@
       width: 40px;
       height: 40px;
       color: var(--baby-pink-deep);
-      filter: drop-shadow(0 2px 10px rgba(232, 112, 140, 0.4));
+      filter: drop-shadow(0 2px 10px rgba(201, 168, 76, 0.4));
       animation: crownBob 3s ease-in-out infinite;
     }
     @keyframes crownBob {
@@ -556,11 +569,11 @@
       width: 100%;
       border-radius: 20px;
       padding: 10px;
-      background: linear-gradient(135deg, #ffffff 0%, #ffe4ec 30%, #fec5d4 70%, #ffffff 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #fefae0 30%, #f0d98a 70%, #ffffff 100%);
       box-shadow: 
-        0 25px 65px rgba(220, 110, 140, 0.35),
-        0 0 35px rgba(255, 182, 193, 0.5),
-        0 0 0 1.5px rgba(232, 112, 140, 0.4);
+        0 25px 65px rgba(180, 140, 20, 0.35),
+        0 0 35px rgba(240, 217, 138, 0.5),
+        0 0 0 1.5px rgba(201, 168, 76, 0.4);
       cursor: pointer;
       overflow: hidden;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -569,7 +582,7 @@
       transform: translateY(-4px) scale(1.015);
       box-shadow: 
         0 30px 75px rgba(220, 100, 130, 0.45),
-        0 0 45px rgba(255, 140, 165, 0.7);
+        0 0 45px rgba(224, 176, 32, 0.7);
     }
 
     .photo-inner-canvas {
@@ -578,7 +591,7 @@
       height: 500px;
       border-radius: 14px;
       overflow: hidden;
-      background-color: #fff0f3;
+      background-color: #fefdf0;
     }
 
     /* Real Couple Photo with Romantic Gentle Breathing Animation */
@@ -601,7 +614,7 @@
     .photo-vignette {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 40%, transparent 45%, rgba(60, 20, 35, 0.4) 100%);
+      background: radial-gradient(circle at 50% 40%, transparent 45%, rgba(30, 20, 0, 0.4) 100%);
       pointer-events: none;
     }
 
@@ -655,16 +668,16 @@
       color: var(--baby-pink-vibrant);
       font-size: 1.6rem;
       backdrop-filter: blur(8px);
-      box-shadow: 0 4px 20px rgba(232, 112, 140, 0.5);
+      box-shadow: 0 4px 20px rgba(201, 168, 76, 0.5);
       animation: touchPulsePink 2s infinite ease-in-out;
     }
     @keyframes touchPulsePink {
       0%, 100% {
-        box-shadow: 0 0 0 0 rgba(255, 94, 131, 0.7);
+        box-shadow: 0 0 0 0 rgba(224, 176, 32, 0.7);
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 0 18px rgba(255, 94, 131, 0);
+        box-shadow: 0 0 0 18px rgba(224, 176, 32, 0);
         transform: scale(1.1);
       }
     }
@@ -676,8 +689,8 @@
       color: #ffffff;
       text-transform: uppercase;
       font-weight: 600;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(232, 112, 140, 0.8);
-      background: rgba(60, 20, 35, 0.6);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(201, 168, 76, 0.8);
+      background: rgba(30, 20, 0, 0.6);
       padding: 6px 18px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.6);
@@ -690,8 +703,8 @@
       inset: 0;
       background: linear-gradient(
         to top,
-        rgba(50, 15, 28, 0.94) 0%,
-        rgba(70, 20, 38, 0.75) 45%,
+        rgba(25, 15, 0, 0.94) 0%,
+        rgba(35, 20, 0, 0.75) 45%,
         transparent 80%
       );
       display: flex;
@@ -716,8 +729,8 @@
       color: #ffffff;
       text-shadow: 
         0 2px 15px rgba(0, 0, 0, 0.8),
-        0 0 25px rgba(255, 182, 193, 0.9),
-        0 0 45px rgba(255, 94, 131, 0.7);
+        0 0 25px rgba(240, 217, 138, 0.9),
+        0 0 45px rgba(224, 176, 32, 0.7);
       letter-spacing: 0.02em;
     }
     .names-ampersand {
@@ -726,7 +739,7 @@
       color: var(--baby-pink-soft);
       margin: -6px 0;
       display: block;
-      text-shadow: 0 0 15px rgba(255, 197, 212, 0.8);
+      text-shadow: 0 0 15px rgba(240, 217, 138, 0.8);
     }
     .couple-tagline {
       font-family: 'Cormorant Garamond', serif;
@@ -743,7 +756,7 @@
     .proceed-details-btn {
       position: relative;
       margin-top: 24px;
-      background: linear-gradient(135deg, #fff5f8 0%, #ffc2d4 40%, #e8708c 100%);
+      background: linear-gradient(135deg, #fdfbf0 0%, #f0d98a 40%, #c9a84c 100%);
       color: #ffffff;
       border: none;
       padding: 16px 42px;
@@ -759,10 +772,10 @@
       gap: 10px;
       overflow: hidden;
       box-shadow: 
-        0 10px 35px rgba(232, 112, 140, 0.55),
-        0 0 20px rgba(255, 140, 165, 0.4),
+        0 10px 35px rgba(201, 168, 76, 0.55),
+        0 0 20px rgba(224, 176, 32, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
-      text-shadow: 0 1px 4px rgba(100, 20, 40, 0.3);
+      text-shadow: 0 1px 4px rgba(80, 55, 5, 0.3);
       transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       opacity: 0;
       transform: translateY(18px);
@@ -800,8 +813,8 @@
     .proceed-details-btn:hover {
       transform: translateY(-4px) scale(1.06);
       box-shadow: 
-        0 16px 45px rgba(232, 112, 140, 0.75),
-        0 0 40px rgba(255, 94, 131, 0.9),
+        0 16px 45px rgba(201, 168, 76, 0.75),
+        0 0 40px rgba(224, 176, 32, 0.9),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
     }
 
@@ -812,12 +825,12 @@
       height: 72px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.92);
-      border: 2px solid rgba(255, 182, 193, 0.8);
+      border: 2px solid rgba(240, 217, 138, 0.8);
       display: flex;
       align-items: center;
       justify-content: center;
       backdrop-filter: blur(10px);
-      box-shadow: 0 6px 24px rgba(232, 112, 140, 0.45);
+      box-shadow: 0 6px 24px rgba(201, 168, 76, 0.45);
       animation: bloomPulse 2.5s infinite ease-in-out;
     }
     .bloom-cue-ring::before, .bloom-cue-ring::after {
@@ -825,17 +838,17 @@
       position: absolute;
       inset: -8px;
       border-radius: 50%;
-      border: 1.5px solid rgba(255, 140, 165, 0.35);
+      border: 1.5px solid rgba(224, 176, 32, 0.35);
       animation: rippleOut 2.5s infinite ease-out;
     }
     .bloom-cue-ring::after {
       inset: -18px;
-      border-color: rgba(255, 182, 193, 0.2);
+      border-color: rgba(240, 217, 138, 0.2);
       animation-delay: 0.6s;
     }
     @keyframes bloomPulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 6px 24px rgba(232, 112, 140, 0.45); }
-      50% { transform: scale(1.08); box-shadow: 0 8px 32px rgba(232, 112, 140, 0.65); }
+      0%, 100% { transform: scale(1); box-shadow: 0 6px 24px rgba(201, 168, 76, 0.45); }
+      50% { transform: scale(1.08); box-shadow: 0 8px 32px rgba(201, 168, 76, 0.65); }
     }
     @keyframes rippleOut {
       0% { transform: scale(0.9); opacity: 0.8; }
@@ -844,7 +857,7 @@
     .bloom-inner {
       font-size: 1.9rem;
       animation: heartBeat 1.8s infinite ease-in-out;
-      filter: drop-shadow(0 2px 8px rgba(232, 112, 140, 0.6));
+      filter: drop-shadow(0 2px 8px rgba(201, 168, 76, 0.6));
     }
     @keyframes heartBeat {
       0%, 100% { transform: scale(1); }
@@ -856,7 +869,7 @@
       font-family: 'Great Vibes', cursive;
       font-size: 1.6rem;
       color: #ffffff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 20px rgba(255, 182, 193, 0.9);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 20px rgba(240, 217, 138, 0.9);
       margin-top: 8px;
       letter-spacing: 0.04em;
     }
@@ -868,7 +881,7 @@
       text-transform: uppercase;
       font-weight: 600;
       text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-      background: rgba(50, 15, 28, 0.45);
+      background: rgba(25, 15, 0, 0.45);
       padding: 5px 16px;
       border-radius: 20px;
       border: 1px solid rgba(255,255,255,0.4);
@@ -889,8 +902,8 @@
       color: var(--text-dark);
       border-radius: 16px;
       box-shadow: 
-        0 25px 80px rgba(210, 110, 140, 0.28),
-        0 0 0 1.5px rgba(255, 182, 193, 0.6),
+        0 25px 80px rgba(180, 140, 20, 0.28),
+        0 0 0 1.5px rgba(240, 217, 138, 0.6),
         0 0 50px rgba(255, 215, 225, 0.4);
       overflow: hidden;
       margin: 10px auto 40px;
@@ -912,112 +925,317 @@
       transform: translateY(0);
     }
 
-    /* Soft Pink & White Header Banner */
+        /* =========================================================
+       STAGE 4: ROYAL NUPTIAL PROCLAMATION (ANIMATED HEADER)
+       ========================================================= */
     .scroll-header-decor {
-      background: linear-gradient(150deg, #fff0f4 0%, #ffdbe4 50%, #ffc4d4 100%);
+      background: 
+        radial-gradient(ellipse at 50% 0%, rgba(254, 240, 175, 0.45) 0%, rgba(255, 255, 255, 0) 70%),
+        linear-gradient(160deg, #ffffff 0%, #fdfbf3 50%, #faf3db 100%);
       color: var(--text-dark);
-      padding: 42px 24px 32px;
+      padding: 46px 24px 38px;
       text-align: center;
       position: relative;
-      border-bottom: 2px solid var(--baby-pink);
+      border-bottom: 2px solid var(--gold-border);
+      overflow: hidden;
     }
     .scroll-header-decor::before {
       content: '';
       position: absolute;
       inset: 10px;
-      border: 1px solid rgba(232, 112, 140, 0.35);
-      border-radius: 10px;
+      border: 1.5px solid rgba(201, 168, 76, 0.4);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+    .scroll-header-decor::after {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border: 1px dashed rgba(201, 168, 76, 0.25);
+      border-radius: 8px;
       pointer-events: none;
     }
 
-    .scroll-crest {
-      font-size: 2.2rem;
-      color: var(--baby-pink-deep);
-      margin-bottom: 8px;
-      filter: drop-shadow(0 2px 8px rgba(232, 112, 140, 0.4));
-      animation: crownBob 3s ease-in-out infinite;
+    /* Corner Filigree Flourishes */
+    .procl-corner-flourish {
+      position: absolute;
+      font-size: 1.15rem;
+      color: rgba(201, 168, 76, 0.55);
+      line-height: 1;
+      pointer-events: none;
+      z-index: 2;
+      transition: all 1s ease 0.6s;
+      opacity: 0;
+      transform: scale(0.6);
     }
-    .scroll-top-subtitle {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.35em;
-      color: var(--baby-pink-deep);
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 14px;
+    .details-animated .procl-corner-flourish {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .procl-corner-flourish.tl { top: 16px; left: 18px; }
+    .procl-corner-flourish.tr { top: 16px; right: 18px; }
+    .procl-corner-flourish.bl { bottom: 16px; left: 18px; }
+    .procl-corner-flourish.br { bottom: 16px; right: 18px; }
+
+    /* Base class for all proclamation animated items */
+    .anim-procl {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--procl-delay, 0s),
+                  transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--procl-delay, 0s),
+                  letter-spacing 0.85s cubic-bezier(0.22, 1, 0.36, 1) var(--procl-delay, 0s),
+                  filter 0.85s ease var(--procl-delay, 0s);
+      will-change: opacity, transform;
+    }
+    .details-animated .anim-procl {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Guest Dedication Ribbon in Pure White */
-    .guest-honor-banner {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1.5px solid var(--baby-pink);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 14px 0 20px;
-      box-shadow: 0 4px 15px rgba(220, 110, 140, 0.15);
+    /* 1. Crown Crest */
+    .procl-crown {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 6px;
+      opacity: 0;
+      transform: translateY(-28px) scale(0.7);
+      transition: opacity 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) var(--procl-delay, 0.15s),
+                  transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) var(--procl-delay, 0.15s);
+    }
+    .details-animated .procl-crown {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .procl-crown .crown-icon {
+      font-size: 2.8rem;
+      color: var(--gold);
+      display: inline-block;
+      filter: drop-shadow(0 4px 12px rgba(201, 168, 76, 0.45));
+      animation: crownHover 3.5s ease-in-out infinite alternate;
+    }
+    .procl-crown .crown-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(245, 226, 122, 0.6) 0%, rgba(201, 168, 76, 0) 70%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+      animation: crownPulseGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes crownHover {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(1.5deg); }
+      100% { transform: translateY(0) rotate(-1.5deg); }
+    }
+    @keyframes crownPulseGlow {
+      0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+      50% { transform: translate(-50%, -50%) scale(1.35); opacity: 0.9; }
+    }
+
+    /* 2. Royal Nuptial Celebration */
+    .procl-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.72rem, 2.2vw, 0.85rem);
+      letter-spacing: 0.5em;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .details-animated .procl-subtitle {
+      letter-spacing: 0.32em;
+    }
+    .procl-sparkle {
+      color: var(--gold);
+      font-size: 0.88rem;
+      animation: sparkleTwinkle 2.5s ease-in-out infinite;
+    }
+    @keyframes sparkleTwinkle {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.35) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 6px rgba(245, 226, 122, 0.9)); }
+    }
+
+    /* 3. Guest Honor Ribbon */
+    .procl-guest-banner {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 16px 22px 14px;
+      margin: 14px auto 20px;
+      max-width: 480px;
+      position: relative;
+      box-shadow: 
+        0 10px 30px rgba(180, 140, 20, 0.12),
+        inset 0 0 20px rgba(254, 249, 215, 0.35);
+      backdrop-filter: blur(4px);
     }
     .guest-prefix-text {
       font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
+      font-size: clamp(0.65rem, 1.8vw, 0.74rem);
       letter-spacing: 0.28em;
-      color: var(--baby-pink-deep);
+      color: var(--gold-deep);
       text-transform: uppercase;
       font-weight: 600;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .guest-name-showcase {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.2rem, 7vw, 3rem);
-      color: #3b1622;
-      text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 182, 193, 0.6);
-      line-height: 1.1;
+      font-size: clamp(2.3rem, 7.5vw, 3.2rem);
+      line-height: 1.15;
+      background: linear-gradient(135deg, #7a5c10 0%, #c9a84c 25%, #f5e27a 50%, #c9a84c 75%, #7a5c10 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: goldShimmerText 6s linear infinite;
+      filter: drop-shadow(0 2px 6px rgba(201, 168, 76, 0.2));
+      padding: 2px 0;
+    }
+    @keyframes goldShimmerText {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+    .guest-ribbon-flourish {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .ribbon-line {
+      height: 1px;
+      width: 45px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .ribbon-knot {
+      color: var(--gold);
+      font-size: 0.8rem;
     }
 
-    .scroll-announcement-text {
+    /* 4. Formal Announcement Passage */
+    .procl-announcement-text {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.15rem;
-      color: var(--text-dark);
-      line-height: 1.6;
-      max-width: 440px;
+      font-size: clamp(1.08rem, 3.2vw, 1.22rem);
+      color: #3b2c0c;
+      line-height: 1.65;
+      max-width: 460px;
       margin: 0 auto;
+      letter-spacing: 0.02em;
     }
 
-    /* Royal Couple Highlight in Card */
-    .scroll-couple-names {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(3rem, 9vw, 3.8rem);
-      color: #431624;
-      line-height: 1.1;
-      margin: 18px 0;
-      text-shadow: 0 0 25px rgba(255, 140, 165, 0.5);
+    /* 5. Royal Couple Reveal */
+    .procl-couple-names {
+      margin: 20px 0 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    .scroll-couple-names span {
+    .procl-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.2rem, 9.5vw, 4.2rem);
+      line-height: 1.05;
+      background: linear-gradient(135deg, #6c4e06 0%, #c9a84c 30%, #fdfbf0 50%, #c9a84c 70%, #825f0e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 220% auto;
+      animation: goldShimmerText 7s linear infinite;
+      filter: drop-shadow(0 2px 10px rgba(201, 168, 76, 0.3));
+    }
+    .procl-ampersand-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: -10px 0;
+      width: 100%;
+      max-width: 260px;
+    }
+    .amp-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.6), transparent);
+    }
+    .procl-amp {
       font-family: 'Alex Brush', cursive;
-      font-size: 2.4rem;
-      display: block;
-      margin: -8px 0;
-      color: var(--baby-pink-deep);
+      font-size: 2.6rem;
+      color: var(--gold-deep);
+      display: inline-block;
+      transform: rotate(-3deg);
+      filter: drop-shadow(0 1px 4px rgba(201, 168, 76, 0.4));
+    }
+
+    /* 6. Royal Date Badge (Friday • 15th January 2027) */
+    .procl-date-badge {
+      display: inline-block;
+      margin-top: 6px;
+    }
+    .procl-date-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 250, 225, 0.95) 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 30px;
+      padding: 8px 24px;
+      box-shadow: 
+        0 4px 18px rgba(180, 140, 20, 0.15),
+        inset 0 0 10px rgba(255, 255, 255, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+    .procl-date-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transform: translateX(-100%);
+      animation: dateSweep 4s ease-in-out infinite 2s;
+    }
+    @keyframes dateSweep {
+      0%, 40% { transform: translateX(-100%); }
+      60%, 100% { transform: translateX(100%); }
+    }
+    .procl-date-inner .date-decor-star {
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+    .procl-date-inner .date-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.75rem, 2.3vw, 0.88rem);
+      letter-spacing: 0.22em;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      font-weight: 700;
     }
 
     /* Card Content Body in Pure White */
     .scroll-card-body {
       padding: 34px 24px;
       background: 
-        radial-gradient(circle at 50% 0%, rgba(255, 228, 236, 0.5) 0%, transparent 65%),
+        radial-gradient(circle at 50% 0%, rgba(254, 249, 200, 0.5) 0%, transparent 65%),
         #ffffff;
     }
 
     /* Romantic Quote Box in Soft Blush */
     .royal-quote-box {
       border-left: 3.5px solid var(--baby-pink-deep);
-      background: linear-gradient(135deg, rgba(255, 240, 244, 0.8) 0%, rgba(255, 248, 250, 0.5) 100%);
+      background: linear-gradient(135deg, rgba(254, 250, 220, 0.8) 0%, rgba(255, 253, 240, 0.5) 100%);
       padding: 16px 20px;
       margin-bottom: 30px;
       border-radius: 0 10px 10px 0;
       text-align: left;
-      box-shadow: 0 2px 10px rgba(220, 120, 145, 0.08);
+      box-shadow: 0 2px 10px rgba(180, 140, 20, 0.08);
     }
     .quote-text {
       font-family: 'Cormorant Garamond', serif;
@@ -1044,13 +1262,13 @@
       position: relative;
       margin: 28px 0 32px;
       padding: 28px 18px 24px;
-      background: linear-gradient(160deg, #ffffff 0%, #fff2f6 50%, #ffeaf0 100%);
+      background: linear-gradient(160deg, #ffffff 0%, #fefdf8 50%, #fdf5db 100%);
       border: 1.5px solid var(--baby-pink);
       border-radius: 16px;
       text-align: center;
       box-shadow: 
-        0 12px 35px rgba(220, 110, 140, 0.15),
-        0 0 25px rgba(255, 182, 193, 0.3);
+        0 12px 35px rgba(180, 140, 20, 0.15),
+        0 0 25px rgba(240, 217, 138, 0.3);
       overflow: hidden;
     }
 
@@ -1058,7 +1276,7 @@
       content: '';
       position: absolute;
       inset: 6px;
-      border: 1px dashed rgba(232, 112, 140, 0.25);
+      border: 1px dashed rgba(201, 168, 76, 0.25);
       border-radius: 12px;
       pointer-events: none;
     }
@@ -1076,7 +1294,7 @@
       border-radius: 20px;
       border: 1px solid var(--baby-pink);
       margin-bottom: 14px;
-      box-shadow: 0 2px 8px rgba(220, 110, 140, 0.1);
+      box-shadow: 0 2px 8px rgba(180, 140, 20, 0.1);
     }
 
     /* Big Castle SVG Artwork */
@@ -1094,7 +1312,7 @@
       width: 100%;
       height: auto;
       max-height: 220px;
-      filter: drop-shadow(0 8px 20px rgba(232, 112, 140, 0.25));
+      filter: drop-shadow(0 8px 20px rgba(201, 168, 76, 0.25));
       transform: scale(0.9);
       opacity: 0;
       transition: transform 1s cubic-bezier(0.34, 1.3, 0.64, 1), opacity 0.8s ease;
@@ -1107,8 +1325,8 @@
     }
 
     @keyframes castleShimmerAura {
-      0% { filter: drop-shadow(0 6px 15px rgba(232, 112, 140, 0.25)); }
-      100% { filter: drop-shadow(0 10px 30px rgba(255, 94, 131, 0.45)); }
+      0% { filter: drop-shadow(0 6px 15px rgba(201, 168, 76, 0.25)); }
+      100% { filter: drop-shadow(0 10px 30px rgba(224, 176, 32, 0.45)); }
     }
 
     .animated-ship {
@@ -1137,11 +1355,11 @@
       font-family: 'Cinzel', serif;
       font-size: clamp(1.8rem, 6vw, 2.3rem);
       font-weight: 700;
-      color: #3b1622;
+      color: #2a1a00;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       line-height: 1.2;
-      text-shadow: 0 2px 10px rgba(255, 182, 193, 0.6);
+      text-shadow: 0 2px 10px rgba(240, 217, 138, 0.6);
       margin-bottom: 8px;
     }
 
@@ -1160,7 +1378,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, #ffffff 0%, #fff0f4 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #fefdf0 100%);
       border: 1.5px solid var(--baby-pink);
       color: var(--baby-pink-deep);
       padding: 9px 22px;
@@ -1171,14 +1389,14 @@
       text-decoration: none;
       font-weight: 700;
       transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(220, 110, 140, 0.15);
+      box-shadow: 0 4px 14px rgba(180, 140, 20, 0.15);
     }
     .venue-map-link:hover {
       background: var(--baby-pink-deep);
       border-color: var(--baby-pink-deep);
       color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(232, 112, 140, 0.4);
+      box-shadow: 0 8px 22px rgba(201, 168, 76, 0.4);
     }
 
     /* Other Event Information Blocks */
@@ -1187,7 +1405,7 @@
       align-items: flex-start;
       gap: 18px;
       padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 182, 193, 0.35);
+      border-bottom: 1px solid rgba(240, 217, 138, 0.35);
       transition: transform 0.25s ease;
     }
     .info-block-item:hover {
@@ -1201,13 +1419,13 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ffffff 0%, #ffdbe4 50%, #f79cb2 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #fef3c7 50%, #d4af37 100%);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 4px 15px rgba(232, 112, 140, 0.3);
+      box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
       font-size: 1.35rem;
       border: 1.5px solid #ffffff;
     }
@@ -1248,11 +1466,11 @@
     .parents-royalty-box {
       margin: 26px 0;
       padding: 22px;
-      background: linear-gradient(145deg, #fff5f8 0%, #ffe9f0 100%);
-      border: 1px solid rgba(255, 182, 193, 0.5);
+      background: linear-gradient(145deg, #fdfbf0 0%, #fefae0 100%);
+      border: 1px solid rgba(240, 217, 138, 0.5);
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(220, 110, 140, 0.08);
+      box-shadow: 0 4px 15px rgba(180, 140, 20, 0.08);
     }
     .parents-box-heading {
       font-family: 'Cinzel', serif;
@@ -1289,8 +1507,8 @@
       background: #ffffff;
       padding: 16px;
       border-radius: 10px;
-      border: 1px solid rgba(255, 197, 212, 0.6);
-      box-shadow: 0 2px 10px rgba(220, 110, 140, 0.08);
+      border: 1px solid rgba(240, 217, 138, 0.6);
+      box-shadow: 0 2px 10px rgba(180, 140, 20, 0.08);
       transition: transform 0.25s ease;
     }
     .parent-card-cell:hover {
@@ -1323,12 +1541,12 @@
     .countdown-section-wrap {
       margin: 30px 0;
       padding: 24px 16px;
-      background: linear-gradient(135deg, #fff0f4 0%, #ffd6e2 100%);
+      background: linear-gradient(135deg, #fefdf0 0%, #faecd0 100%);
       border-radius: 12px;
       color: var(--text-dark);
       text-align: center;
       border: 1.5px solid var(--baby-pink);
-      box-shadow: 0 8px 25px rgba(220, 110, 140, 0.15);
+      box-shadow: 0 8px 25px rgba(180, 140, 20, 0.15);
     }
     .countdown-title {
       font-family: 'Cinzel', serif;
@@ -1348,10 +1566,10 @@
     .cd-block {
       min-width: 60px;
       background: #ffffff;
-      border: 1px solid rgba(255, 182, 193, 0.6);
+      border: 1px solid rgba(240, 217, 138, 0.6);
       padding: 10px 8px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(220, 110, 140, 0.12);
+      box-shadow: 0 4px 12px rgba(180, 140, 20, 0.12);
       transition: transform 0.25s ease;
     }
     .cd-block:hover {
@@ -1391,7 +1609,7 @@
       margin-top: 10px;
     }
     .dress-chip {
-      background: rgba(255, 240, 244, 0.9);
+      background: rgba(254, 250, 220, 0.9);
       border: 1px solid var(--baby-pink);
       padding: 5px 14px;
       border-radius: 20px;
@@ -1400,7 +1618,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
       font-style: italic;
-      box-shadow: 0 2px 6px rgba(220, 110, 140, 0.08);
+      box-shadow: 0 2px 6px rgba(180, 140, 20, 0.08);
       transition: all 0.25s ease;
     }
     .dress-chip:hover {
@@ -1423,7 +1641,7 @@
       font-family: 'Cinzel', serif;
       font-size: clamp(1.2rem, 4vw, 1.5rem);
       font-weight: 700;
-      color: #3b1622;
+      color: #2a1a00;
       letter-spacing: 0.08em;
     }
     .timeline-prompt {
@@ -1477,31 +1695,31 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ffffff 0%, #ffc2d4 60%, #e8708c 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #f0d98a 60%, #c9a84c 100%);
       border: 2px solid var(--baby-pink-deep);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
-      box-shadow: 0 4px 16px rgba(232, 112, 140, 0.35);
+      box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35);
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
     }
     .tl-dot:hover {
       transform: scale(1.15);
-      box-shadow: 0 6px 22px rgba(232, 112, 140, 0.55);
+      box-shadow: 0 6px 22px rgba(201, 168, 76, 0.55);
     }
     .tl-content {
       flex: 1;
-      background: linear-gradient(135deg, #ffffff 0%, #fff8fa 100%);
-      border: 1px solid rgba(255, 182, 193, 0.5);
+      background: linear-gradient(135deg, #ffffff 0%, #fdfbf2 100%);
+      border: 1px solid rgba(240, 217, 138, 0.5);
       border-radius: 12px;
       padding: 14px 16px;
-      box-shadow: 0 3px 14px rgba(220, 110, 140, 0.1);
+      box-shadow: 0 3px 14px rgba(180, 140, 20, 0.1);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .tl-content:hover {
       transform: translateX(4px);
-      box-shadow: 0 6px 22px rgba(220, 110, 140, 0.2);
+      box-shadow: 0 6px 22px rgba(180, 140, 20, 0.2);
     }
     .tl-time {
       font-family: 'Cinzel', serif;
@@ -1529,8 +1747,8 @@
     }
     /* Pulse dot animation for current/active event */
     @keyframes tlPulse {
-      0%, 100% { box-shadow: 0 4px 16px rgba(232, 112, 140, 0.35), 0 0 0 0 rgba(232, 112, 140, 0.4); }
-      50% { box-shadow: 0 4px 16px rgba(232, 112, 140, 0.55), 0 0 0 8px rgba(232, 112, 140, 0); }
+      0%, 100% { box-shadow: 0 4px 16px rgba(201, 168, 76, 0.35), 0 0 0 0 rgba(201, 168, 76, 0.4); }
+      50% { box-shadow: 0 4px 16px rgba(201, 168, 76, 0.55), 0 0 0 8px rgba(201, 168, 76, 0); }
     }
     .tl-dot.pulse {
       animation: tlPulse 2s infinite ease-in-out;
@@ -1538,7 +1756,7 @@
 
     /* Elegant Clean Footer (Removed Calendar, Blessing box, and confirmation) */
     .card-actions-footer {
-      background: linear-gradient(180deg, #fff0f4 0%, #ffdce5 100%);
+      background: linear-gradient(180deg, #fefdf0 0%, #fef3c7 100%);
       color: var(--text-dark);
       padding: 34px 24px 30px;
       text-align: center;
@@ -1581,14 +1799,14 @@
       justify-content: center;
       gap: 8px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(220, 110, 140, 0.12);
+      box-shadow: 0 4px 15px rgba(180, 140, 20, 0.12);
       transition: all 0.3s ease;
     }
     .btn-action-outline:hover {
       background: var(--baby-pink-light);
       border-color: var(--baby-pink-deep);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(232, 112, 140, 0.25);
+      box-shadow: 0 6px 20px rgba(201, 168, 76, 0.25);
     }
 
     .replay-experience-link {
@@ -1614,10 +1832,10 @@
       top: 0;
       bottom: 0;
       width: 50vw;
-      background: linear-gradient(90deg, #ffcbd7 0%, #fff0f4 20%, #ff9ebb 50%, #fff0f4 80%, #ffcbd7 100%);
+      background: linear-gradient(90deg, #fef3c7 0%, #fefdf0 20%, #f0d98a 50%, #fefdf0 80%, #fef3c7 100%);
       z-index: 100000;
       transition: transform 2.5s cubic-bezier(0.6, 0.05, 0.15, 0.95);
-      box-shadow: inset 0 0 20px rgba(232, 112, 140, 0.4), 0 0 30px rgba(0,0,0,0.1);
+      box-shadow: inset 0 0 20px rgba(201, 168, 76, 0.4), 0 0 30px rgba(0,0,0,0.1);
       pointer-events: all;
     }
     .curtain-panel::after {
@@ -1626,8 +1844,8 @@
       top: 0;
       bottom: 0;
       width: 12px;
-      background: linear-gradient(90deg, #ff7b9b 0%, #e8708c 100%);
-      box-shadow: 0 0 10px rgba(232, 112, 140, 0.5);
+      background: linear-gradient(90deg, #c9a84c 0%, #c9a84c 100%);
+      box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
     }
     .curtain-panel.left {
       left: 0;
@@ -1654,7 +1872,7 @@
     .screen-flash-overlay {
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.98), #ffdbe4);
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.98), #fef3c7);
       z-index: 99999;
       opacity: 0;
       pointer-events: none;
@@ -1716,28 +1934,28 @@
 
   <!-- Rose-Gold & Baby Pink Corner Filigree Ornaments -->
   <svg class="corner-ornament co-top-left" viewBox="0 0 100 100" fill="none">
-    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#e8708c" stroke-width="2"/>
-    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#ffb6c6" stroke-width="1.2" fill="none"/>
-    <circle cx="4" cy="4" r="3.5" fill="#e8708c"/>
-    <circle cx="28" cy="28" r="2.2" fill="#e8708c"/>
+    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#c9a84c" stroke-width="2"/>
+    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#f0d98a" stroke-width="1.2" fill="none"/>
+    <circle cx="4" cy="4" r="3.5" fill="#c9a84c"/>
+    <circle cx="28" cy="28" r="2.2" fill="#c9a84c"/>
   </svg>
   <svg class="corner-ornament co-top-right" viewBox="0 0 100 100" fill="none">
-    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#e8708c" stroke-width="2"/>
-    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#ffb6c6" stroke-width="1.2" fill="none"/>
-    <circle cx="4" cy="4" r="3.5" fill="#e8708c"/>
-    <circle cx="28" cy="28" r="2.2" fill="#e8708c"/>
+    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#c9a84c" stroke-width="2"/>
+    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#f0d98a" stroke-width="1.2" fill="none"/>
+    <circle cx="4" cy="4" r="3.5" fill="#c9a84c"/>
+    <circle cx="28" cy="28" r="2.2" fill="#c9a84c"/>
   </svg>
   <svg class="corner-ornament co-bottom-left" viewBox="0 0 100 100" fill="none">
-    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#e8708c" stroke-width="2"/>
-    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#ffb6c6" stroke-width="1.2" fill="none"/>
-    <circle cx="4" cy="4" r="3.5" fill="#e8708c"/>
-    <circle cx="28" cy="28" r="2.2" fill="#e8708c"/>
+    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#c9a84c" stroke-width="2"/>
+    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#f0d98a" stroke-width="1.2" fill="none"/>
+    <circle cx="4" cy="4" r="3.5" fill="#c9a84c"/>
+    <circle cx="28" cy="28" r="2.2" fill="#c9a84c"/>
   </svg>
   <svg class="corner-ornament co-bottom-right" viewBox="0 0 100 100" fill="none">
-    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#e8708c" stroke-width="2"/>
-    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#ffb6c6" stroke-width="1.2" fill="none"/>
-    <circle cx="4" cy="4" r="3.5" fill="#e8708c"/>
-    <circle cx="28" cy="28" r="2.2" fill="#e8708c"/>
+    <path d="M4 4 L4 55 M4 4 L55 4" stroke="#c9a84c" stroke-width="2"/>
+    <path d="M4 25 C25 4 4 25 35 35 C25 4 35 25 4 35" stroke="#f0d98a" stroke-width="1.2" fill="none"/>
+    <circle cx="4" cy="4" r="3.5" fill="#c9a84c"/>
+    <circle cx="28" cy="28" r="2.2" fill="#c9a84c"/>
   </svg>
 
   <!-- Main Viewport -->
@@ -1784,7 +2002,7 @@
           <!-- Peeking Letter inside envelope -->
           <div class="envelope-peek-card">
             <p style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;color:var(--baby-pink-deep);text-transform:uppercase;margin-bottom:6px;font-weight:600;">Sacred Nuptials</p>
-            <h2 style="font-family:'Great Vibes',cursive;font-size:2.4rem;color:#4a1523;line-height:1;">Kaveesha &amp; Shanshana</h2>
+            <h2 style="font-family:'Great Vibes',cursive;font-size:2.4rem;color:#2a1a00;line-height:1;">Kaveesha &amp; Shanshana</h2>
             <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--text-muted);margin-top:6px;">January 15, 2027 &bull; Watersage Hotel</p>
           </div>
 
@@ -1869,36 +2087,69 @@
     <section class="section-view hidden-view" id="stageDetails">
       <div class="royal-scroll-card" id="royalScrollCard">
         
-        <!-- Header Banner in Soft Pearlescent Pink -->
-        <div class="scroll-header-decor anim-detail-item" style="transition-delay: 0.1s;">
-          <div class="scroll-crest">&#9813;</div>
-          <p class="scroll-top-subtitle">&#10022; Royal Nuptial Celebration &#10022;</p>
-          
-          <div class="guest-honor-banner">
-            <span class="guest-prefix-text">With Highest Regard &amp; Honor, Presented To:</span>
-            <div class="guest-name-showcase" id="displayGuestName">Our Esteemed Guest</div>
+        <!-- Royal Proclamation Header Banner in Gold & Pure White -->
+        <div class="scroll-header-decor" id="proclamationHeader">
+          <!-- Royal Decorative Flourishes -->
+          <div class="procl-corner-flourish tl">&#9879;</div>
+          <div class="procl-corner-flourish tr">&#9879;</div>
+          <div class="procl-corner-flourish bl">&#9879;</div>
+          <div class="procl-corner-flourish br">&#9879;</div>
+
+          <!-- 1. Crown Crest: ♕ -->
+          <div class="procl-crown anim-procl" id="proclCrown" style="--procl-delay: 0.15s;">
+            <span class="crown-icon">&#9813;</span>
+            <div class="crown-glow"></div>
           </div>
 
-          <p class="scroll-announcement-text">
+          <!-- 2. Subtitle: ✦ Royal Nuptial Celebration ✦ -->
+          <p class="procl-subtitle anim-procl" id="proclSubtitle" style="--procl-delay: 0.35s;">
+            <span class="procl-sparkle">&#10022;</span>
+            <span class="procl-subtitle-text">Royal Nuptial Celebration</span>
+            <span class="procl-sparkle">&#10022;</span>
+          </p>
+          
+          <!-- 3. Guest Honor Ribbon -->
+          <div class="procl-guest-banner anim-procl" id="proclGuestBanner" style="--procl-delay: 0.55s;">
+            <span class="guest-prefix-text">With Highest Regard &amp; Honor, Presented To:</span>
+            <div class="guest-name-showcase" id="displayGuestName">Our Esteemed Guest</div>
+            <div class="guest-ribbon-flourish">
+              <span class="ribbon-line"></span>
+              <span class="ribbon-knot">&#10048;</span>
+              <span class="ribbon-line"></span>
+            </div>
+          </div>
+
+          <!-- 4. Announcement Text -->
+          <p class="procl-announcement-text anim-procl" id="proclAnnouncement" style="--procl-delay: 0.8s;">
             Together with their parents, joyfully request the pleasure of your gracious company at the sacred wedding celebration of
           </p>
 
-          <div class="scroll-couple-names">
-            Kaveesha
-            <span>&amp;</span>
-            Shanshana
+          <!-- 5. Royal Couple Highlight -->
+          <div class="procl-couple-names anim-procl" id="proclCouple" style="--procl-delay: 1.05s;">
+            <div class="procl-name procl-groom">Kaveesha</div>
+            <div class="procl-ampersand-wrap">
+              <span class="amp-line"></span>
+              <span class="procl-amp">&amp;</span>
+              <span class="amp-line"></span>
+            </div>
+            <div class="procl-name procl-bride">Shanshana</div>
           </div>
 
-          <p style="font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.25em;color:var(--baby-pink-deep);text-transform:uppercase;font-weight:600;">
-            Friday &bull; 15th January 2027
-          </p>
+          <!-- 6. Date Announcement Pill/Badge: Friday • 15th January 2027 -->
+          <div class="procl-date-badge anim-procl" id="proclDate" style="--procl-delay: 1.35s;">
+            <div class="procl-date-inner">
+              <span class="date-decor-star">&#10022;</span>
+              <span class="date-text">Friday &bull; 15th January 2027</span>
+              <span class="date-decor-star">&#10022;</span>
+            </div>
+          </div>
         </div>
 
         <!-- Body Details in White -->
         <div class="scroll-card-body">
           
           <!-- Romantic Blessing -->
-          <div class="royal-quote-box anim-detail-item" style="transition-delay: 0.25s;">
+          <div class="royal-quote-box anim-detail-item" style="transition-delay: 1.6s;">
             <p class="quote-text">
               &ldquo;Two hearts that beat in sacred harmony, embarking upon a lifetime journey of boundless devotion, happiness, and timeless grace.&rdquo;
             </p>
@@ -1908,7 +2159,7 @@
           <!-- =========================================================
                VENUE SECTION: BIG LUXURY CASTLE & ANIMATED NAME
                ========================================================= -->
-          <div class="venue-grand-stage anim-detail-item" style="transition-delay: 0.45s;">
+          <div class="venue-grand-stage anim-detail-item" style="transition-delay: 1.85s;">
             <span class="venue-badge-pill">&#10022; The Wedding Venue &#10022;</span>
 
             <!-- Big Majestic Castle Artwork (SVG) -->
@@ -1917,107 +2168,107 @@
                 <defs>
                   <linearGradient id="castleWall" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="40%" stop-color="#fff1f5"/>
-                    <stop offset="100%" stop-color="#ffd5e1"/>
+                    <stop offset="40%" stop-color="#fefdf0"/>
+                    <stop offset="100%" stop-color="#fde8a0"/>
                   </linearGradient>
                   <linearGradient id="castleRoof" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#ff7b9b"/>
-                    <stop offset="100%" stop-color="#e85b7e"/>
+                    <stop offset="0%" stop-color="#c9a84c"/>
+                    <stop offset="100%" stop-color="#c9a84c"/>
                   </linearGradient>
                   <linearGradient id="goldTrim" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stop-color="#ffd2a6"/>
-                    <stop offset="50%" stop-color="#e8708c"/>
+                    <stop offset="50%" stop-color="#c9a84c"/>
                     <stop offset="100%" stop-color="#c9887b"/>
                   </linearGradient>
                   <linearGradient id="gateGlow" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="100%" stop-color="#ffe4ec"/>
+                    <stop offset="100%" stop-color="#fefae0"/>
                   </linearGradient>
                 </defs>
 
                 <!-- Water/Lake & Ground -->
-                <ellipse cx="200" cy="272" rx="190" ry="18" fill="url(#gateGlow)" stroke="#ffdce5"/>
-                <ellipse cx="200" cy="260" rx="180" ry="10" fill="rgba(232, 112, 140, 0.15)"/>
+                <ellipse cx="200" cy="272" rx="190" ry="18" fill="url(#gateGlow)" stroke="#fef3c7"/>
+                <ellipse cx="200" cy="260" rx="180" ry="10" fill="rgba(201, 168, 76, 0.15)"/>
                 
                 <!-- Animated Royal Ships on the Water -->
-                <g class="animated-ship" stroke="#e8708c" stroke-width="1.2">
+                <g class="animated-ship" stroke="#c9a84c" stroke-width="1.2">
                   <path d="M40 275 L65 275 L60 282 L45 282 Z" fill="#ffffff"/>
-                  <path d="M48 275 L53 255 L60 275 Z" fill="#ffb6c6"/>
-                  <path d="M54 255 L58 245 L62 255 Z" fill="#ff7b9b" stroke="none"/>
+                  <path d="M48 275 L53 255 L60 275 Z" fill="#f0d98a"/>
+                  <path d="M54 255 L58 245 L62 255 Z" fill="#c9a84c" stroke="none"/>
                 </g>
-                <g class="animated-ship-2" stroke="#e8708c" stroke-width="1.2">
+                <g class="animated-ship-2" stroke="#c9a84c" stroke-width="1.2">
                   <path d="M330 270 L350 270 L345 278 L325 278 Z" fill="#ffffff"/>
-                  <path d="M335 270 L340 250 L345 270 Z" fill="#ffcbd7"/>
+                  <path d="M335 270 L340 250 L345 270 Z" fill="#fef3c7"/>
                 </g>
                 
                 <!-- Main Castle Base & Walls -->
-                <rect x="110" y="140" width="180" height="120" rx="4" fill="url(#castleWall)" stroke="#e8708c" stroke-width="1.8"/>
-                <rect x="140" y="100" width="120" height="160" rx="4" fill="url(#castleWall)" stroke="#e8708c" stroke-width="1.8"/>
+                <rect x="110" y="140" width="180" height="120" rx="4" fill="url(#castleWall)" stroke="#c9a84c" stroke-width="1.8"/>
+                <rect x="140" y="100" width="120" height="160" rx="4" fill="url(#castleWall)" stroke="#c9a84c" stroke-width="1.8"/>
 
                 <!-- Left Outer Tower -->
-                <rect x="50" y="120" width="60" height="140" rx="3" fill="url(#castleWall)" stroke="#e8708c" stroke-width="1.8"/>
+                <rect x="50" y="120" width="60" height="140" rx="3" fill="url(#castleWall)" stroke="#c9a84c" stroke-width="1.8"/>
                 <!-- Left Tower Battlement -->
                 <rect x="44" y="112" width="72" height="14" rx="2" fill="url(#castleRoof)" stroke="#c9887b" stroke-width="1.2"/>
                 <path d="M48 112 L48 106 M58 112 L58 106 M68 112 L68 106 M78 112 L78 106 M88 112 L88 106 M98 112 L98 106 M108 112 L108 106 M114 112 L114 106" stroke="#c9887b" stroke-width="2.5"/>
                 <!-- Left Tower Conical Spire -->
-                <path d="M52 112 L80 35 L108 112 Z" fill="url(#castleRoof)" stroke="#e8708c" stroke-width="1.5"/>
-                <line x1="80" y1="35" x2="80" y2="15" stroke="#e8708c" stroke-width="2"/>
-                <path d="M80 15 L95 21 L80 27 Z" fill="#ff5e83"/>
+                <path d="M52 112 L80 35 L108 112 Z" fill="url(#castleRoof)" stroke="#c9a84c" stroke-width="1.5"/>
+                <line x1="80" y1="35" x2="80" y2="15" stroke="#c9a84c" stroke-width="2"/>
+                <path d="M80 15 L95 21 L80 27 Z" fill="#e0b020"/>
 
                 <!-- Right Outer Tower -->
-                <rect x="290" y="120" width="60" height="140" rx="3" fill="url(#castleWall)" stroke="#e8708c" stroke-width="1.8"/>
+                <rect x="290" y="120" width="60" height="140" rx="3" fill="url(#castleWall)" stroke="#c9a84c" stroke-width="1.8"/>
                 <!-- Right Tower Battlement -->
                 <rect x="284" y="112" width="72" height="14" rx="2" fill="url(#castleRoof)" stroke="#c9887b" stroke-width="1.2"/>
                 <path d="M288 112 L288 106 M298 112 L298 106 M308 112 L308 106 M318 112 L318 106 M328 112 L328 106 M338 112 L338 106 M348 112 L348 106 M354 112 L354 106" stroke="#c9887b" stroke-width="2.5"/>
                 <!-- Right Tower Conical Spire -->
-                <path d="M292 112 L320 35 L348 112 Z" fill="url(#castleRoof)" stroke="#e8708c" stroke-width="1.5"/>
-                <line x1="320" y1="35" x2="320" y2="15" stroke="#e8708c" stroke-width="2"/>
-                <path d="M320 15 L335 21 L320 27 Z" fill="#ff5e83"/>
+                <path d="M292 112 L320 35 L348 112 Z" fill="url(#castleRoof)" stroke="#c9a84c" stroke-width="1.5"/>
+                <line x1="320" y1="35" x2="320" y2="15" stroke="#c9a84c" stroke-width="2"/>
+                <path d="M320 15 L335 21 L320 27 Z" fill="#e0b020"/>
 
                 <!-- Central Grand Palace Spire Tower -->
-                <rect x="160" y="70" width="80" height="70" fill="url(#castleWall)" stroke="#e8708c" stroke-width="1.8"/>
+                <rect x="160" y="70" width="80" height="70" fill="url(#castleWall)" stroke="#c9a84c" stroke-width="1.8"/>
                 <rect x="154" y="62" width="92" height="12" rx="2" fill="url(#castleRoof)" stroke="#c9887b" stroke-width="1.2"/>
                 <!-- Grand Central Spire -->
-                <path d="M165 62 L200 5 L235 62 Z" fill="url(#castleRoof)" stroke="#e8708c" stroke-width="2"/>
+                <path d="M165 62 L200 5 L235 62 Z" fill="url(#castleRoof)" stroke="#c9a84c" stroke-width="2"/>
                 <!-- Royal Gold Finial & Flag -->
                 <circle cx="200" cy="5" r="4.5" fill="url(#goldTrim)" stroke="#ffffff" stroke-width="1"/>
-                <line x1="200" y1="5" x2="200" y2="-12" stroke="#e8708c" stroke-width="2.5"/>
+                <line x1="200" y1="5" x2="200" y2="-12" stroke="#c9a84c" stroke-width="2.5"/>
                 <path d="M200 -12 L224 -4 L200 4 Z" fill="url(#goldTrim)"/>
 
                 <!-- Intermediate Turrets -->
-                <path d="M125 140 L135 105 L145 140 Z" fill="url(#castleRoof)" stroke="#e8708c" stroke-width="1.2"/>
-                <path d="M255 140 L265 105 L275 140 Z" fill="url(#castleRoof)" stroke="#e8708c" stroke-width="1.2"/>
+                <path d="M125 140 L135 105 L145 140 Z" fill="url(#castleRoof)" stroke="#c9a84c" stroke-width="1.2"/>
+                <path d="M255 140 L265 105 L275 140 Z" fill="url(#castleRoof)" stroke="#c9a84c" stroke-width="1.2"/>
 
                 <!-- Royal Palace Arched Grand Gate -->
-                <path d="M175 260 L175 205 Q200 180 225 205 L225 260 Z" fill="url(#gateGlow)" stroke="#e8708c" stroke-width="2.2"/>
-                <path d="M182 260 L182 212 Q200 194 218 212 L218 260" stroke="#e8708c" stroke-width="1.2" stroke-dasharray="3,3" fill="none"/>
-                <circle cx="200" cy="195" r="4" fill="#ff7b9b"/>
+                <path d="M175 260 L175 205 Q200 180 225 205 L225 260 Z" fill="url(#gateGlow)" stroke="#c9a84c" stroke-width="2.2"/>
+                <path d="M182 260 L182 212 Q200 194 218 212 L218 260" stroke="#c9a84c" stroke-width="1.2" stroke-dasharray="3,3" fill="none"/>
+                <circle cx="200" cy="195" r="4" fill="#c9a84c"/>
 
                 <!-- Windows with Warm Rose Light -->
                 <!-- Left Tower Windows -->
-                <path d="M72 155 L72 140 Q80 132 88 140 L88 155 Z" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
-                <line x1="80" y1="135" x2="80" y2="155" stroke="#e8708c" stroke-width="1"/>
-                <path d="M72 190 L72 175 Q80 167 88 175 L88 190 Z" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
+                <path d="M72 155 L72 140 Q80 132 88 140 L88 155 Z" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
+                <line x1="80" y1="135" x2="80" y2="155" stroke="#c9a84c" stroke-width="1"/>
+                <path d="M72 190 L72 175 Q80 167 88 175 L88 190 Z" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
                 
                 <!-- Right Tower Windows -->
-                <path d="M312 155 L312 140 Q320 132 328 140 L328 155 Z" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
-                <line x1="320" y1="135" x2="320" y2="155" stroke="#e8708c" stroke-width="1"/>
-                <path d="M312 190 L312 175 Q320 167 328 175 L328 190 Z" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
+                <path d="M312 155 L312 140 Q320 132 328 140 L328 155 Z" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
+                <line x1="320" y1="135" x2="320" y2="155" stroke="#c9a84c" stroke-width="1"/>
+                <path d="M312 190 L312 175 Q320 167 328 175 L328 190 Z" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
 
                 <!-- Central Windows -->
-                <path d="M192 105 L192 90 Q200 82 208 90 L208 105 Z" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
-                <line x1="200" y1="85" x2="200" y2="105" stroke="#e8708c" stroke-width="1"/>
+                <path d="M192 105 L192 90 Q200 82 208 90 L208 105 Z" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
+                <line x1="200" y1="85" x2="200" y2="105" stroke="#c9a84c" stroke-width="1"/>
 
-                <path d="M152 165 L152 150 Q160 142 168 150 L168 165 Z" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
-                <path d="M232 165 L232 150 Q240 142 248 150 L248 165 Z" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
+                <path d="M152 165 L152 150 Q160 142 168 150 L168 165 Z" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
+                <path d="M232 165 L232 150 Q240 142 248 150 L248 165 Z" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
 
                 <!-- Royal Castle Crest / Heart Emblem above gate -->
-                <circle cx="200" cy="155" r="12" fill="#ffffff" stroke="#e8708c" stroke-width="1.5"/>
-                <path d="M200 161 C196 156 193 154 193 151 C193 148 195 146 198 146 C199 146 200 147 200 148 C200 147 201 146 202 146 C205 146 207 148 207 151 C207 154 204 156 200 161 Z" fill="#ff5e83"/>
+                <circle cx="200" cy="155" r="12" fill="#ffffff" stroke="#c9a84c" stroke-width="1.5"/>
+                <path d="M200 161 C196 156 193 154 193 151 C193 148 195 146 198 146 C199 146 200 147 200 148 C200 147 201 146 202 146 C205 146 207 148 207 151 C207 154 204 156 200 161 Z" fill="#e0b020"/>
 
                 <!-- Floating Star / Sparkle accents around spires -->
-                <text x="125" y="45" font-size="18" fill="#e8708c" opacity="0.8">&#10022;</text>
-                <text x="260" y="38" font-size="16" fill="#ff7b9b" opacity="0.85">&#10022;</text>
+                <text x="125" y="45" font-size="18" fill="#c9a84c" opacity="0.8">&#10022;</text>
+                <text x="260" y="38" font-size="16" fill="#c9a84c" opacity="0.85">&#10022;</text>
                 <text x="190" y="-18" font-size="14" fill="#c9887b" opacity="0.9">&#10022;</text>
               </svg>
             </div>
@@ -2098,7 +2349,7 @@
           </div>
 
           <!-- Honored Parents Section -->
-          <div class="parents-royalty-box anim-detail-item" style="transition-delay: 0.8s;">
+          <div class="parents-royalty-box anim-detail-item" style="transition-delay: 2.35s;">
             <h4 class="parents-box-heading">&#10022; Blessed By Their Parents &#10022;</h4>
             <div class="parents-two-col">
               
@@ -2118,7 +2369,7 @@
           </div>
 
           <!-- Countdown Timer Section -->
-          <div class="countdown-section-wrap anim-detail-item" style="transition-delay: 0.95s;">
+          <div class="countdown-section-wrap anim-detail-item" style="transition-delay: 2.55s;">
             <p class="countdown-title">&#10022; Counting Down to the Auspicious Day &#10022;</p>
             <div class="countdown-grid">
               <div class="cd-block">
@@ -2247,7 +2498,7 @@
         speedY: -(Math.random() * 0.45 + 0.15),
         speedX: (Math.random() - 0.5) * 0.35,
         opacity: Math.random() * 0.65 + 0.25,
-        color: Math.random() > 0.4 ? '#ffffff' : '#ffb6c6'
+        color: Math.random() > 0.4 ? '#ffffff' : '#f0d98a'
       };
     }
 
@@ -2262,7 +2513,7 @@
         rotation: Math.random() * 360,
         rotSpeed: (Math.random() - 0.5) * 1.5,
         opacity: Math.random() * 0.45 + 0.25,
-        color: Math.random() > 0.5 ? 'rgba(255, 182, 193, 0.65)' : 'rgba(255, 218, 225, 0.55)'
+        color: Math.random() > 0.5 ? 'rgba(240, 217, 138, 0.65)' : 'rgba(255, 243, 185, 0.55)'
       };
     }
 
@@ -2276,7 +2527,7 @@
         speedX: Math.sin(Math.random() * Math.PI) * 0.4,
         rotation: (Math.random() - 0.5) * 30,
         opacity: Math.random() * 0.35 + 0.15,
-        color: 'rgba(254, 197, 212, 0.5)'
+        color: 'rgba(240, 200, 80, 0.45)'
       };
     }
 
@@ -2441,7 +2692,7 @@
       container.style.top = originY + 'px';
       document.body.appendChild(container);
 
-      const colors = ['#ffffff', '#ffb6c6', '#ff8aa5', '#ffd1dc', '#c9887b', '#f9e8a2'];
+      const colors = ['#ffffff', '#f0d98a', '#c9a84c', '#fef3c7', '#d4af37', '#fffff0'];
 
       for (let i = 0; i < count; i++) {
         const chip = document.createElement('div');
@@ -2598,6 +2849,10 @@
         // Trigger staggered animation after card mounts
         setTimeout(() => {
           scrollCard.classList.add('details-animated');
+          setTimeout(() => {
+            const cardRect = scrollCard.getBoundingClientRect();
+            triggerCelebrationParticles(cardRect.left + cardRect.width / 2, cardRect.top + 160, 45);
+          }, 1100);
         }, 80);
         startWeddingCountdown();
 
@@ -2607,7 +2862,7 @@
           setTimeout(() => {
             const el = document.getElementById(id);
             if (el) el.classList.add('tl-visible');
-          }, 900 + idx * 350);
+          }, 2200 + idx * 350);
         });
       });
     });
