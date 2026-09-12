@@ -236,7 +236,7 @@
     .envelope-outer {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 350px;
       perspective: 1200px;
       margin: 10px auto 26px;
       cursor: pointer;
@@ -299,7 +299,7 @@
       width: 50%;
       border-style: solid;
       border-width: 160px 240px 160px 0;
-      border-color: transparent rgba(255, 205, 218, 0.75) transparent transparent;
+      border-color: transparent rgba(255, 240, 190, 0.75) transparent transparent;
       pointer-events: none;
     }
     .envelope-tri-bottom {
@@ -309,7 +309,7 @@
       right: 0;
       border-style: solid;
       border-width: 0 240px 170px 240px;
-      border-color: transparent transparent rgba(255, 235, 241, 0.96) transparent;
+      border-color: transparent transparent rgba(255, 250, 235, 0.96) transparent;
       pointer-events: none;
     }
 
@@ -372,62 +372,212 @@
       opacity: 0;
     }
 
-    /* Guest Name Tag on Front of Envelope */
+    /* =========================================================
+       ENVELOPE FRONT: LOCKED GUEST VIEW VS COUPLE CREATOR VIEW
+       ========================================================= */
+    /* 1. Locked Guest Plaque (Permanent & Non-editable for Recipient) */
+    .envelope-guest-locked {
+      position: relative;
+      z-index: 4;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(254, 250, 230, 0.94) 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 10px 18px;
+      width: 90%;
+      margin: 0 auto 10px;
+      box-shadow: 
+        0 8px 25px rgba(180, 140, 20, 0.22),
+        inset 0 0 15px rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    .envelope-guest-locked::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px dashed rgba(201, 168, 76, 0.35);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+    .locked-crown {
+      font-size: 1.2rem;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 2px;
+      filter: drop-shadow(0 1px 4px rgba(201, 168, 76, 0.4));
+    }
+    .guest-locked-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.1rem, 6.5vw, 2.8rem);
+      line-height: 1.15;
+      background: linear-gradient(135deg, #7a5c10 0%, #c9a84c 30%, #f7e082 50%, #c9a84c 75%, #7a5c10 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: goldShimmerText 6s linear infinite;
+      filter: drop-shadow(0 2px 4px rgba(201, 168, 76, 0.25));
+      margin: 2px 0;
+      word-break: break-word;
+    }
+    .guest-locked-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      font-weight: 700;
+      background: rgba(201, 168, 76, 0.12);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 20px;
+      padding: 3px 12px;
+      margin-top: 3px;
+    }
+
+    /* 2. Couple Creator View (Used to generate individual locked guest links) */
     .envelope-guest-tag {
       position: relative;
       z-index: 4;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1.5px solid var(--baby-pink);
-      border-radius: 10px;
-      padding: 12px 18px;
-      width: 88%;
-      margin: 0 auto 12px;
-      box-shadow: 0 6px 20px rgba(180, 140, 20, 0.2);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 252, 240, 0.95) 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 10px 14px 8px;
+      width: 92%;
+      margin: 0 auto 8px;
+      box-shadow: 0 8px 25px rgba(180, 140, 20, 0.2);
       backdrop-filter: blur(8px);
       transition: all 0.3s ease;
+      text-align: center;
     }
-    .envelope-guest-tag:hover {
-      border-color: var(--baby-pink-deep);
-      box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3);
+    .creator-crown-tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+    .creator-crown {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+    .creator-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      font-weight: 700;
     }
     .tag-label {
       font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      color: var(--baby-pink-deep);
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      color: var(--gold-deep);
       text-transform: uppercase;
       font-weight: 600;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     .guest-input-field {
       width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1.5px dashed var(--baby-pink);
-      color: var(--text-dark);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      border-radius: 6px;
+      color: #2a1a00;
       font-family: 'Great Vibes', cursive;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       text-align: center;
       outline: none;
-      padding: 2px 8px;
-      transition: border-color 0.3s, transform 0.2s;
+      padding: 3px 8px;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
     .guest-input-field:focus {
-      border-bottom-color: var(--baby-pink-vibrant);
-      transform: scale(1.02);
+      border-color: var(--gold-vibrant);
+      box-shadow: 0 0 12px rgba(240, 217, 138, 0.6);
+      background: #ffffff;
     }
     .guest-input-field::placeholder {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.15rem;
-      color: rgba(159, 117, 132, 0.55);
+      font-size: 1.05rem;
+      color: rgba(120, 96, 32, 0.55);
+    }
+    .creator-action-buttons {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .creator-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      border-radius: 20px;
+      border: 1.5px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .creator-btn.btn-copy-link {
+      background: linear-gradient(135deg, #fdfbf0 0%, #f7e082 100%);
+      color: #2a1a00;
+    }
+    .creator-btn.btn-copy-link:hover {
+      background: linear-gradient(135deg, #ffffff 0%, #f0d98a 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+    }
+    .creator-btn.btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      border-color: #1ebe57;
+    }
+    .creator-btn.btn-whatsapp:hover {
+      background: #1ebe57;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+    }
+    .creator-security-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* Locked Guest Footer Pill on Stage 4 */
+    .guest-exclusive-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 250, 225, 0.95) 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 30px;
+      padding: 10px 24px;
+      color: var(--gold-deep);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(180, 140, 20, 0.15);
     }
 
     /* Baby Pink & Rose Gold Wax Seal Button */
     .wax-seal-btn {
       position: absolute;
-      top: 145px;
+      top: 130px;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 84px;
@@ -1037,7 +1187,7 @@
       50% { transform: translate(-50%, -50%) scale(1.35); opacity: 0.9; }
     }
 
-    /* 2. Royal Nuptial Celebration */
+    /* 2. Sacred Nuptial Celebration */
     .procl-subtitle {
       font-family: 'Cinzel', serif;
       font-size: clamp(0.72rem, 2.2vw, 0.85rem);
@@ -1221,21 +1371,36 @@
 
     /* Card Content Body in Pure White */
     .scroll-card-body {
-      padding: 34px 24px;
+      padding: 36px 24px;
       background: 
-        radial-gradient(circle at 50% 0%, rgba(254, 249, 200, 0.5) 0%, transparent 65%),
+        radial-gradient(circle at 20% 10%, rgba(254, 249, 215, 0.4) 0%, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(254, 249, 215, 0.3) 0%, transparent 50%),
         #ffffff;
     }
 
-    /* Romantic Quote Box in Soft Blush */
+    /* Romantic Quote Box */
     .royal-quote-box {
-      border-left: 3.5px solid var(--baby-pink-deep);
-      background: linear-gradient(135deg, rgba(254, 250, 220, 0.8) 0%, rgba(255, 253, 240, 0.5) 100%);
-      padding: 16px 20px;
-      margin-bottom: 30px;
-      border-radius: 0 10px 10px 0;
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(135deg, rgba(255, 253, 240, 0.95) 0%, rgba(254, 250, 230, 0.8) 100%);
+      padding: 20px 22px;
+      margin-bottom: 32px;
+      border-radius: 0 14px 14px 0;
       text-align: left;
-      box-shadow: 0 2px 10px rgba(180, 140, 20, 0.08);
+      box-shadow: 
+        0 4px 18px rgba(180, 140, 20, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.6);
+      position: relative;
+    }
+    .royal-quote-box::before {
+      content: '“';
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: rgba(201, 168, 76, 0.25);
+      line-height: 1;
+      pointer-events: none;
     }
     .quote-text {
       font-family: 'Cormorant Garamond', serif;
@@ -1261,14 +1426,17 @@
     .venue-grand-stage {
       position: relative;
       margin: 28px 0 32px;
-      padding: 28px 18px 24px;
-      background: linear-gradient(160deg, #ffffff 0%, #fefdf8 50%, #fdf5db 100%);
-      border: 1.5px solid var(--baby-pink);
-      border-radius: 16px;
+      padding: 32px 18px 28px;
+      background: 
+        radial-gradient(ellipse at 50% 0%, rgba(254, 249, 215, 0.5) 0%, transparent 65%),
+        linear-gradient(180deg, #ffffff 0%, #fdfcf5 60%, #faf5e4 100%);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 20px;
       text-align: center;
       box-shadow: 
-        0 12px 35px rgba(180, 140, 20, 0.15),
-        0 0 25px rgba(240, 217, 138, 0.3);
+        0 16px 50px rgba(180, 140, 20, 0.18),
+        0 0 35px rgba(240, 217, 138, 0.25),
+        inset 0 0 30px rgba(255, 255, 255, 0.8);
       overflow: hidden;
     }
 
@@ -1311,17 +1479,20 @@
     .big-castle-svg {
       width: 100%;
       height: auto;
-      max-height: 220px;
+      max-height: 240px;
       filter: drop-shadow(0 8px 20px rgba(201, 168, 76, 0.25));
-      transform: scale(0.9);
+      transform: translateY(50px) scale(0.85);
       opacity: 0;
-      transition: transform 1s cubic-bezier(0.34, 1.3, 0.64, 1), opacity 0.8s ease;
+      transition: 
+        transform 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+        opacity 1.2s ease 0.2s,
+        filter 1.6s ease 0.2s;
     }
-
     .details-animated .big-castle-svg {
-      transform: scale(1);
+      transform: translateY(0) scale(1);
       opacity: 1;
-      animation: castleShimmerAura 4s infinite alternate ease-in-out;
+      filter: drop-shadow(0 12px 30px rgba(201, 168, 76, 0.4));
+      animation: castleShimmerAura 4s 1.8s infinite alternate ease-in-out;
     }
 
     @keyframes castleShimmerAura {
@@ -1343,25 +1514,31 @@
     /* Animated Venue Name Emergence */
     .venue-animated-name-wrap {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.8s ease 0.4s, transform 0.8s cubic-bezier(0.34, 1.3, 0.64, 1) 0.4s;
+      transform: translateY(22px);
+      transition: 
+        opacity 1s ease 1.8s, 
+        transform 1s cubic-bezier(0.34, 1.3, 0.64, 1) 1.8s;
     }
     .details-animated .venue-animated-name-wrap {
       opacity: 1;
       transform: translateY(0);
     }
-
     .venue-grand-name {
       font-family: 'Cinzel', serif;
-      font-size: clamp(1.8rem, 6vw, 2.3rem);
+      font-size: clamp(1.7rem, 5.5vw, 2.2rem);
       font-weight: 700;
-      color: #2a1a00;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       line-height: 1.2;
-      text-shadow: 0 2px 10px rgba(240, 217, 138, 0.6);
       margin-bottom: 8px;
+      background: linear-gradient(135deg, #6c4e06 0%, #c9a84c 35%, #f5e27a 50%, #c9a84c 65%, #6c4e06 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmerText 8s linear infinite;
     }
+
+
 
     .venue-tagline {
       font-family: 'Cormorant Garamond', serif;
@@ -1537,16 +1714,30 @@
       margin-top: 3px;
     }
 
-    /* Countdown Timer in White & Baby Pink */
+    /* Countdown Timer */
     .countdown-section-wrap {
       margin: 30px 0;
-      padding: 24px 16px;
-      background: linear-gradient(135deg, #fefdf0 0%, #faecd0 100%);
-      border-radius: 12px;
+      padding: 28px 20px;
+      background: linear-gradient(160deg, #ffffff 0%, #fdfbf2 40%, #faf3d8 100%);
+      border-radius: 16px;
       color: var(--text-dark);
       text-align: center;
-      border: 1.5px solid var(--baby-pink);
-      box-shadow: 0 8px 25px rgba(180, 140, 20, 0.15);
+      border: 1.5px solid var(--gold-border);
+      box-shadow: 
+        0 12px 35px rgba(180, 140, 20, 0.18),
+        0 0 20px rgba(240, 217, 138, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown-section-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+      animation: dateSweep 6s ease-in-out infinite 3s;
     }
     .countdown-title {
       font-family: 'Cinzel', serif;
@@ -1826,45 +2017,175 @@
       transform: scale(1.04);
     }
 
-    /* Royal Grand Curtains */
+    /* =========================================================
+       GRAND WEDDING CURTAINS — Ornate, richly decorated
+       ========================================================= */
     .curtain-panel {
       position: fixed;
       top: 0;
       bottom: 0;
-      width: 50vw;
-      background: linear-gradient(90deg, #fef3c7 0%, #fefdf0 20%, #f0d98a 50%, #fefdf0 80%, #fef3c7 100%);
+      width: 52vw;
       z-index: 100000;
-      transition: transform 2.5s cubic-bezier(0.6, 0.05, 0.15, 0.95);
-      box-shadow: inset 0 0 20px rgba(201, 168, 76, 0.4), 0 0 30px rgba(0,0,0,0.1);
+      transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1);
       pointer-events: all;
+      overflow: hidden;
     }
+
+    /* Rich fabric with vertical fold shading */
+    .curtain-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.12) 0px,
+          rgba(255,255,255,0.12) 8px,
+          transparent 8px,
+          transparent 28px,
+          rgba(0,0,0,0.05) 28px,
+          rgba(0,0,0,0.05) 36px,
+          transparent 36px,
+          transparent 56px
+        ),
+        linear-gradient(180deg,
+          #fef3c7 0%,
+          #fdf5d0 10%,
+          #ffffff 30%,
+          #fefbf0 50%,
+          #ffffff 70%,
+          #fdf5d0 90%,
+          #f5e082 100%
+        );
+      pointer-events: none;
+    }
+
+    /* Gold edge rod and bottom hem */
     .curtain-panel::after {
       content: '';
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 12px;
-      background: linear-gradient(90deg, #c9a84c 0%, #c9a84c 100%);
-      box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+      width: 18px;
+      background: linear-gradient(180deg, #f5e082 0%, #c9a84c 30%, #e8d080 50%, #c9a84c 70%, #b8960a 100%);
+      box-shadow: 
+        0 0 15px rgba(201, 168, 76, 0.6),
+        inset 0 0 6px rgba(255, 255, 255, 0.5);
     }
+
     .curtain-panel.left {
       left: 0;
-      transform-origin: left;
+      transform-origin: left center;
     }
     .curtain-panel.left::after { right: 0; }
-    
+
     .curtain-panel.right {
       right: 0;
-      transform-origin: right;
+      transform-origin: right center;
     }
     .curtain-panel.right::after { left: 0; }
-    
+
+    /* Decorative top pelmet (cornice) */
+    .curtain-pelmet {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      z-index: 100001;
+      background: linear-gradient(180deg, #c9a84c 0%, #e8cc6a 40%, #c9a84c 70%, #9a7a0a 100%);
+      box-shadow: 0 4px 20px rgba(100, 70, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      transition: transform 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+      pointer-events: none;
+    }
+    .curtain-pelmet::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 4px,
+        transparent 4px, transparent 20px
+      );
+    }
+    .pelmet-ornament {
+      font-size: 1.6rem;
+      color: #ffffff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      filter: drop-shadow(0 0 8px rgba(255, 240, 150, 0.6));
+      z-index: 1;
+    }
+    .pelmet-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.5em;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      z-index: 1;
+    }
+
+    /* Curtain tassel decorations */
+    .curtain-tassel {
+      position: fixed;
+      z-index: 100002;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+      transition: opacity 0.5s ease 1s;
+    }
+    .curtain-tassel.left-tassel {
+      left: calc(52vw - 20px);
+      top: 55px;
+    }
+    .curtain-tassel.right-tassel {
+      right: calc(52vw - 20px);
+      top: 55px;
+    }
+    .tassel-knot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, #f5e27a, #c9a84c);
+      box-shadow: 0 3px 10px rgba(100, 70, 0, 0.4);
+    }
+    .tassel-cord {
+      width: 4px;
+      height: 28px;
+      background: linear-gradient(180deg, #c9a84c, #f0d98a, #c9a84c);
+      border-radius: 2px;
+    }
+    .tassel-fringe {
+      display: flex;
+      gap: 3px;
+    }
+    .tassel-strand {
+      width: 3px;
+      height: 22px;
+      border-radius: 0 0 3px 3px;
+      background: linear-gradient(180deg, #c9a84c, #f0d98a);
+      opacity: 0.9;
+    }
+
     body.curtains-open .curtain-panel.left {
-      transform: scaleX(0);
+      transform: translateX(-100%);
       pointer-events: none;
     }
     body.curtains-open .curtain-panel.right {
-      transform: scaleX(0);
+      transform: translateX(100%);
+      pointer-events: none;
+    }
+    body.curtains-open .curtain-pelmet {
+      transform: translateY(-100%);
+    }
+    body.curtains-open .curtain-tassel {
+      opacity: 0;
       pointer-events: none;
     }
 
@@ -1908,9 +2229,42 @@
 </head>
 <body>
 
-  <!-- Grand Royal Curtains (Loading Animation) -->
-  <div class="curtain-panel left"></div>
-  <div class="curtain-panel right"></div>
+  <!-- ✨ Grand Wedding Curtains ✨ -->
+  <!-- Pelmet (decorative top cornice) -->
+  <div class="curtain-pelmet" id="curtainPelmet">
+    <span class="pelmet-ornament">&#10022;</span>
+    <span class="pelmet-ornament">&#9829;</span>
+    <span class="pelmet-text">Kaveesha &amp; Shanshana</span>
+    <span class="pelmet-ornament">&#9829;</span>
+    <span class="pelmet-ornament">&#10022;</span>
+  </div>
+  <!-- Left curtain panel -->
+  <div class="curtain-panel left" id="curtainLeft"></div>
+  <!-- Right curtain panel -->
+  <div class="curtain-panel right" id="curtainRight"></div>
+  <!-- Decorative tassels at tie-back -->
+  <div class="curtain-tassel left-tassel" id="tasselLeft">
+    <div class="tassel-knot"></div>
+    <div class="tassel-cord"></div>
+    <div class="tassel-fringe">
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+    </div>
+  </div>
+  <div class="curtain-tassel right-tassel" id="tasselRight">
+    <div class="tassel-knot"></div>
+    <div class="tassel-cord"></div>
+    <div class="tassel-fringe">
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+      <div class="tassel-strand"></div>
+    </div>
+  </div>
 
   <!-- Floating Ambient Clouds -->
   <div class="ambient-glow-sphere glow-1"></div>
@@ -1984,18 +2338,46 @@
             <div class="envelope-tri-right"></div>
             <div class="envelope-tri-bottom"></div>
 
-            <!-- Guest Name Plate on front of envelope -->
-            <div class="envelope-guest-tag" onclick="event.stopPropagation()">
-              <span class="tag-label">&#10022; To Our Esteemed Guest &#10022;</span>
+            <!-- 1. LOCKED GUEST VIEW (Shown to Recipient: Non-editable, Permanent Name) -->
+            <div class="envelope-guest-locked" id="envelopeGuestLocked" style="display: none;">
+              <span class="locked-crown">&#9813;</span>
+              <span class="tag-label">&#10022; Exclusively Presented To &#10022;</span>
+              <div class="guest-locked-name" id="envelopeGuestLockedName">Our Esteemed Guest</div>
+              <div class="guest-locked-badge">
+                <span>&#128274;</span>
+                <span>Personal Invitation</span>
+              </div>
+            </div>
+
+            <!-- 2. COUPLE CREATOR VIEW (Shown to Couple: Type Name to Generate & Share Locked Link) -->
+            <div class="envelope-guest-tag" id="envelopeCreatorTag" onclick="event.stopPropagation()">
+              <div class="creator-crown-tag">
+                <span class="creator-crown">&#9813;</span>
+                <span class="creator-title">Couple's Invitation Creator</span>
+              </div>
+              <span class="tag-label">&#10022; Enter Guest's Name &#10022;</span>
               <input 
                 type="text" 
                 class="guest-input-field" 
                 id="envelopeGuestInput" 
-                placeholder="Enter Your Name Here" 
+                placeholder="e.g. Mr. &amp; Mrs. Perera" 
                 value=""
                 autocomplete="off"
                 spellcheck="false"
               />
+              <div class="creator-action-buttons">
+                <button type="button" class="creator-btn btn-copy-link" id="btnCreatorCopy">
+                  <span>&#128203;</span>
+                  <span id="creatorCopyText">Copy Locked Link</span>
+                </button>
+                <button type="button" class="creator-btn btn-whatsapp" id="btnCreatorWhatsApp">
+                  <span>&#128172;</span>
+                  <span>WhatsApp</span>
+                </button>
+              </div>
+              <p class="creator-security-note">
+                &#128274; When sent, the guest cannot edit the name or create/share other invitations.
+              </p>
             </div>
           </div>
 
@@ -2014,7 +2396,7 @@
 
         </div>
 
-        <p class="open-prompt">&#10022; Tap the Royal Wax Seal to Open &#10022;</p>
+        <p class="open-prompt">&#10022; Tap the Wax Seal to Open &#10022;</p>
 
       </div>
     </section>
@@ -2087,7 +2469,7 @@
     <section class="section-view hidden-view" id="stageDetails">
       <div class="royal-scroll-card" id="royalScrollCard">
         
-        <!-- Royal Proclamation Header Banner in Gold & Pure White -->
+        <!-- Ceremonial Invitation Header in Gold & Pure White -->
         <div class="scroll-header-decor" id="proclamationHeader">
           <!-- Royal Decorative Flourishes -->
           <div class="procl-corner-flourish tl">&#9879;</div>
@@ -2101,10 +2483,10 @@
             <div class="crown-glow"></div>
           </div>
 
-          <!-- 2. Subtitle: ✦ Royal Nuptial Celebration ✦ -->
+          <!-- 2. Subtitle: ✦ Sacred Nuptial Celebration ✦ -->
           <p class="procl-subtitle anim-procl" id="proclSubtitle" style="--procl-delay: 0.35s;">
             <span class="procl-sparkle">&#10022;</span>
-            <span class="procl-subtitle-text">Royal Nuptial Celebration</span>
+            <span class="procl-subtitle-text">Sacred Nuptial Celebration</span>
             <span class="procl-sparkle">&#10022;</span>
           </p>
           
@@ -2147,6 +2529,14 @@
 
         <!-- Body Details in White -->
         <div class="scroll-card-body">
+          <!-- Floating decorative elements inside the card -->
+          <div style="display:flex;justify-content:center;align-items:center;gap:18px;margin:-8px 0 12px;opacity:0.7;" class="anim-detail-item" style="transition-delay:1.55s;">
+            <span style="font-size:1.3rem;animation:shipFloat 4s infinite alternate ease-in-out;">&#128149;</span>
+            <span style="font-size:0.9rem;color:var(--gold);animation:sparkleTwinkle 3s infinite ease-in-out;">&#10022;</span>
+            <span style="font-size:1.3rem;animation:shipFloat 5s 1s infinite alternate-reverse ease-in-out;">&#128146;</span>
+            <span style="font-size:0.9rem;color:var(--gold);animation:sparkleTwinkle 4s 0.5s infinite ease-in-out;">&#10022;</span>
+            <span style="font-size:1.3rem;animation:shipFloat 3.5s 0.5s infinite alternate ease-in-out;">&#128149;</span>
+          </div>
           
           <!-- Romantic Blessing -->
           <div class="royal-quote-box anim-detail-item" style="transition-delay: 1.6s;">
@@ -2160,7 +2550,10 @@
                VENUE SECTION: BIG LUXURY CASTLE & ANIMATED NAME
                ========================================================= -->
           <div class="venue-grand-stage anim-detail-item" style="transition-delay: 1.85s;">
-            <span class="venue-badge-pill">&#10022; The Wedding Venue &#10022;</span>
+            <!-- Floating decorative icons -->
+            <div style="position:absolute;top:10px;left:14px;font-size:1.2rem;opacity:0.5;animation:shipFloat 4s infinite alternate ease-in-out;">&#128176;</div>
+            <div style="position:absolute;top:10px;right:14px;font-size:1.2rem;opacity:0.5;animation:shipFloat 6s 1s infinite alternate-reverse ease-in-out;">&#128176;</div>
+            <span class="venue-badge-pill">&#10022; Celebration Venue &#10022;</span>
 
             <!-- Big Majestic Castle Artwork (SVG) -->
             <div class="big-castle-wrapper">
@@ -2304,7 +2697,7 @@
               <div class="timeline-section">
                 <div class="timeline-date-header">
                   <div class="timeline-main-date">Friday, January 15, 2027</div>
-                  <p class="timeline-prompt">&#10022; A Day Written in the Stars — Join Us as Two Souls Become One &#10022;</p>
+                  <p class="timeline-prompt">&#10022; A Once-in-a-Lifetime Celebration — Join Us as Two Souls Become One &#10022;</p>
                 </div>
 
                 <div class="timeline-track" id="timelineTrack">
@@ -2326,7 +2719,7 @@
                     </div>
                     <div class="tl-content">
                       <span class="tl-time">12:30 PM</span>
-                      <div class="tl-title">Royal Luncheon</div>
+                      <div class="tl-title">Celebratory Luncheon</div>
                       <p class="tl-desc">A lavish feast &amp; heartfelt toast to the newlyweds surrounded by beloved family</p>
                     </div>
                   </div>
@@ -2348,9 +2741,18 @@
             </div>
           </div>
 
+          <!-- Decorative separator before parents -->
+          <div style="text-align:center;padding:10px 0;margin-bottom:4px;" class="anim-detail-item" style="transition-delay:2.2s;">
+            <span style="font-size:1.5rem;animation:shipFloat 3s infinite alternate ease-in-out;">&#128141;</span>
+            <span style="font-size:0.9rem;color:var(--gold);margin:0 12px;animation:sparkleTwinkle 2s infinite ease-in-out;">&#10022;</span>
+            <span style="font-size:1.5rem;animation:crownHover 4s infinite alternate ease-in-out;">&#128149;</span>
+            <span style="font-size:0.9rem;color:var(--gold);margin:0 12px;animation:sparkleTwinkle 2.5s 0.5s infinite ease-in-out;">&#10022;</span>
+            <span style="font-size:1.5rem;animation:shipFloat 3s 1s infinite alternate-reverse ease-in-out;">&#128141;</span>
+          </div>
+
           <!-- Honored Parents Section -->
           <div class="parents-royalty-box anim-detail-item" style="transition-delay: 2.35s;">
-            <h4 class="parents-box-heading">&#10022; Blessed By Their Parents &#10022;</h4>
+            <h4 class="parents-box-heading">&#10022; With the Blessings of Their Parents &#10022;</h4>
             <div class="parents-two-col">
               
               <div class="parent-card-cell">
@@ -2370,7 +2772,7 @@
 
           <!-- Countdown Timer Section -->
           <div class="countdown-section-wrap anim-detail-item" style="transition-delay: 2.55s;">
-            <p class="countdown-title">&#10022; Counting Down to the Auspicious Day &#10022;</p>
+            <p class="countdown-title">&#10022; Counting Down to Our Celebration &#10022;</p>
             <div class="countdown-grid">
               <div class="cd-block">
                 <span class="cd-digits" id="cdDays">00</span>
@@ -2399,8 +2801,8 @@
             <div class="info-icon-badge">&#128087;</div>
             <div class="info-content">
               <span class="info-meta-label">Attire</span>
-              <h3 class="info-main-title">Royal &amp; Formal Elegance</h3>
-              <p class="info-desc-text">We invite our guests to grace our celebration in festive royal attire.</p>
+              <h3 class="info-main-title">Formal &amp; Festive Elegance</h3>
+              <p class="info-desc-text">We invite our guests to grace our celebration in elegant festive attire.</p>
               <div class="dresscode-chips-wrap">
                 <span class="dress-chip">Traditional Kandyan / Indian Saree</span>
                 <span class="dress-chip">National Dress</span>
@@ -2412,29 +2814,41 @@
 
         </div>
 
-        <!-- Clean Royal Footer (Removed Calendar, Blessing box, and confirmation) -->
+        <!-- Elegant Footer (Removed Calendar, Blessing box, and confirmation) -->
         <div class="card-actions-footer anim-detail-item" style="transition-delay: 1.25s;">
+          <!-- Animated dove/flower icons -->
+          <div style="font-size:1.6rem;margin-bottom:8px;display:flex;justify-content:center;gap:18px;align-items:center;">
+            <span style="animation:shipFloat 3.5s infinite alternate ease-in-out;">&#128144;</span>
+            <span style="font-size:1rem;color:var(--gold);animation:sparkleTwinkle 2.5s infinite;">&#10022;</span>
+            <span style="animation:crownHover 4s infinite alternate ease-in-out;display:inline-block;">&#128149;</span>
+            <span style="font-size:1rem;color:var(--gold);animation:sparkleTwinkle 2.5s 0.5s infinite;">&#10022;</span>
+            <span style="animation:shipFloat 3.5s 0.8s infinite alternate-reverse ease-in-out;">&#128144;</span>
+          </div>
           <p class="closing-blessing-text">
             &ldquo;With the loving blessings of our families, we warmly look forward to sharing this unforgettable celebration with you.&rdquo;
           </p>
 
           <div class="clean-footer-actions">
-            <!-- Share Invitation Link Button -->
-            <button class="btn-action-outline" id="btnShareInvite">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="18" cy="5" r="3"></circle>
-                <circle cx="6" cy="12" r="3"></circle>
-                <circle cx="18" cy="19" r="3"></circle>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-              </svg>
-              <span id="shareBtnText">Share Royal Invitation</span>
-            </button>
+            <!-- COUPLE ACTIONS: Create invitation for another guest -->
+            <div id="coupleShareActions">
+              <button class="btn-action-outline" id="btnCreateAnotherInvite">
+                <span>&#9813;</span>
+                <span>Create Invitation for Another Guest</span>
+              </button>
+            </div>
+
+            <!-- GUEST LOCKED VIEW: Personal confirmation, no re-sharing permitted -->
+            <div id="guestLockedFooter" style="display: none;">
+              <div class="guest-exclusive-pill">
+                <span>&#128274;</span>
+                <span id="guestFooterNameBadge">Personal Invitation</span>
+              </div>
+            </div>
           </div>
 
           <!-- Replay Button -->
           <span class="replay-experience-link" id="btnReplayExperience">
-            &#8634; Replay Royal Envelope &amp; Portrait Experience
+            &#8634; Replay Envelope &amp; Portrait Experience
           </span>
 
           <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:var(--text-muted);margin-top:20px;letter-spacing:0.05em;">
@@ -2456,21 +2870,54 @@
        ========================================================= */
     let currentGuestName = "Our Esteemed Guest";
 
-    window.addEventListener('load', () => {
-      // Open the royal curtains after a brief moment
+    function openCurtains() {
+      document.body.classList.add('curtains-open');
       setTimeout(() => {
-        document.body.classList.add('curtains-open');
-      }, 600);
-    });
+        const panels = document.querySelectorAll('.curtain-panel');
+        panels.forEach(p => p.style.display = 'none');
+      }, 1300);
+    }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(openCurtains, 150);
+    } else {
+      window.addEventListener('DOMContentLoaded', () => setTimeout(openCurtains, 150));
+      window.addEventListener('load', () => setTimeout(openCurtains, 150));
+    }
+    document.addEventListener('click', openCurtains, { once: true });
+    document.addEventListener('touchstart', openCurtains, { once: true });
     let isEnvelopeOpened = false;
     let isNamesRevealed = false;
 
     // Check URL parameters for ?guest=...
     const urlParams = new URLSearchParams(window.location.search);
     const guestParam = urlParams.get('guest') || urlParams.get('name');
-    if (guestParam && guestParam.trim()) {
+    const isGuestLockedMode = !!(guestParam && guestParam.trim());
+
+    const envelopeGuestLocked = document.getElementById('envelopeGuestLocked');
+    const envelopeCreatorTag = document.getElementById('envelopeCreatorTag');
+    const envelopeGuestLockedName = document.getElementById('envelopeGuestLockedName');
+    const displayGuestName = document.getElementById('displayGuestName');
+    const coupleShareActions = document.getElementById('coupleShareActions');
+    const guestLockedFooter = document.getElementById('guestLockedFooter');
+    const guestFooterNameBadge = document.getElementById('guestFooterNameBadge');
+
+    if (isGuestLockedMode) {
+      // LOCKED GUEST EXPERIENCE: Name cannot be edited or changed by the guest!
       currentGuestName = guestParam.trim();
-      document.getElementById('envelopeGuestInput').value = currentGuestName;
+      envelopeGuestLocked.style.display = 'block';
+      envelopeCreatorTag.style.display = 'none';
+      envelopeGuestLockedName.textContent = currentGuestName;
+      displayGuestName.textContent = currentGuestName;
+
+      coupleShareActions.style.display = 'none';
+      guestLockedFooter.style.display = 'block';
+      guestFooterNameBadge.textContent = 'Personal Invitation for ' + currentGuestName;
+    } else {
+      // COUPLE CREATOR EXPERIENCE: Couple types guest names to generate exclusive locked links
+      envelopeGuestLocked.style.display = 'none';
+      envelopeCreatorTag.style.display = 'block';
+      coupleShareActions.style.display = 'block';
+      guestLockedFooter.style.display = 'none';
     }
 
     /* =========================================================
@@ -2755,10 +3202,12 @@
       if (isEnvelopeOpened) return;
       isEnvelopeOpened = true;
 
-      // Capture entered guest name
-      const entered = guestInput.value.trim();
-      if (entered) {
-        currentGuestName = entered;
+      // In creator mode, capture any entered guest name
+      if (!isGuestLockedMode) {
+        const entered = guestInput.value.trim();
+        if (entered) {
+          currentGuestName = entered;
+        }
       }
       document.getElementById('displayGuestName').textContent = currentGuestName;
 
@@ -2904,24 +3353,91 @@
     }
 
     /* =========================================================
-       SHARE INVITATION LINK
+       COUPLE INVITATION GENERATOR: COPY & WHATSAPP
        ========================================================= */
-    const shareBtn = document.getElementById('btnShareInvite');
-    const shareBtnText = document.getElementById('shareBtnText');
-    shareBtn.addEventListener('click', () => {
-      const shareUrl = window.location.origin + window.location.pathname + '?guest=' + encodeURIComponent(currentGuestName);
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(shareUrl).then(() => {
-          shareBtnText.textContent = 'Link Copied to Clipboard!';
-          triggerCelebrationParticles(window.innerWidth / 2, window.innerHeight / 2, 35);
+    const btnCreatorCopy = document.getElementById('btnCreatorCopy');
+    const creatorCopyText = document.getElementById('creatorCopyText');
+    const btnCreatorWhatsApp = document.getElementById('btnCreatorWhatsApp');
+    const btnCreateAnotherInvite = document.getElementById('btnCreateAnotherInvite');
+
+    function getTargetGuestName() {
+      const entered = guestInput ? guestInput.value.trim() : '';
+      return entered || currentGuestName;
+    }
+
+    function buildLockedGuestUrl(name) {
+      const base = window.location.origin + window.location.pathname;
+      return base + '?guest=' + encodeURIComponent(name);
+    }
+
+    if (btnCreatorCopy) {
+      btnCreatorCopy.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const name = guestInput.value.trim();
+        if (!name) {
+          guestInput.focus();
+          guestInput.placeholder = 'Please type guest name here first!';
+          return;
+        }
+        currentGuestName = name;
+        displayGuestName.textContent = name;
+        const lockedUrl = buildLockedGuestUrl(name);
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(lockedUrl).then(() => {
+            creatorCopyText.textContent = '✓ Link Copied!';
+            triggerCelebrationParticles(window.innerWidth / 2, window.innerHeight / 2, 40);
+            setTimeout(() => {
+              creatorCopyText.textContent = 'Copy Locked Link';
+            }, 3000);
+          });
+        } else {
+          prompt('Copy this locked invitation link for ' + name + ':', lockedUrl);
+        }
+      });
+    }
+
+    if (btnCreatorWhatsApp) {
+      btnCreatorWhatsApp.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const name = guestInput.value.trim();
+        if (!name) {
+          guestInput.focus();
+          guestInput.placeholder = 'Please type guest name here first!';
+          return;
+        }
+        currentGuestName = name;
+        displayGuestName.textContent = name;
+        const lockedUrl = buildLockedGuestUrl(name);
+        const text = '♕ *Royal Wedding Invitation* ♕\n\nDear ' + name + ',\n\nTogether with our parents, we joyfully request the honor of your presence at our wedding celebration:\n' + lockedUrl + '\n\n— Kaveesha & Shanshana';
+        window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
+      });
+    }
+
+    // Button on Stage 4: "Create Invitation for Another Guest"
+    if (btnCreateAnotherInvite) {
+      btnCreateAnotherInvite.addEventListener('click', () => {
+        isEnvelopeOpened = false;
+        isNamesRevealed = false;
+        envelopeWrap.classList.remove('opened');
+        touchPromptWrapper.classList.remove('faded-out');
+        namesRevealOverlay.classList.remove('active-revealed');
+        document.getElementById('royalScrollCard').classList.remove('details-animated');
+        
+        // Reset creator input for the next guest
+        if (guestInput) {
+          guestInput.value = '';
+        }
+        envelopeGuestLocked.style.display = 'none';
+        envelopeCreatorTag.style.display = 'block';
+
+        switchScenes('stageDetails', 'stageEnvelope', () => {
           setTimeout(() => {
-            shareBtnText.textContent = 'Share Royal Invitation';
-          }, 3000);
+            if (guestInput) guestInput.focus();
+          }, 600);
         });
-      } else {
-        alert('Invitation link: ' + shareUrl);
-      }
-    });
+      });
+    }
 
     // Replay Experience
     document.getElementById('btnReplayExperience').addEventListener('click', () => {
